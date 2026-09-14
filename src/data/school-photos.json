@@ -1,0 +1,50 @@
+{
+    "mica":  {
+                 "author":  "Spike55151 (talk) (Uploads)",
+                 "source":  "https://commons.wikimedia.org/wiki/File:Brown_Center.jpg",
+                 "src":  "/images/schools/mica.webp",
+                 "licenseUrl":  null,
+                 "title":  "Brown Center.jpg",
+                 "license":  "Public domain"
+             },
+    "fit":  {
+                "author":  "Beyond My Ken",
+                "source":  "https://commons.wikimedia.org/wiki/File:FIT_27th_Street_campus.jpg",
+                "src":  "/images/schools/fit.webp",
+                "licenseUrl":  "https://creativecommons.org/licenses/by-sa/4.0",
+                "title":  "FIT 27th Street campus.jpg",
+                "license":  "CC BY-SA 4.0"
+            },
+    "saic":  {
+                 "author":  "Alanscottwalker",
+                 "source":  "https://commons.wikimedia.org/wiki/File:School_of_the_Art_Institute_Chicago_Grant_Park.JPG",
+                 "src":  "/images/schools/saic.webp",
+                 "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+                 "title":  "School of the Art Institute Chicago Grant Park.JPG",
+                 "license":  "CC BY-SA 3.0"
+             },
+    "parsons":  {
+                    "author":  "Ajay Suresh from New York, NY, USA",
+                    "source":  "https://commons.wikimedia.org/wiki/File:The_University_Center_for_the_New_School_(48072770027).jpg",
+                    "src":  "/images/schools/parsons.webp",
+                    "licenseUrl":  "https://creativecommons.org/licenses/by/2.0",
+                    "title":  "The University Center for the New School (48072770027).jpg",
+                    "license":  "CC BY 2.0"
+                },
+    "pratt":  {
+                  "author":  "Jonathan Bowen",
+                  "source":  "https://commons.wikimedia.org/wiki/File:Pratt_Institute_main_building.JPG",
+                  "src":  "/images/schools/pratt.webp",
+                  "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+                  "title":  "Pratt Institute main building.JPG",
+                  "license":  "CC BY-SA 3.0"
+              },
+    "risd":  {
+                 "author":  "DanielPenfield",
+                 "source":  "https://commons.wikimedia.org/wiki/File:RISD_College_Building.jpg",
+                 "src":  "/images/schools/risd.webp",
+                 "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
+                 "title":  "RISD College Building.jpg",
+                 "license":  "CC BY-SA 3.0"
+             }
+}

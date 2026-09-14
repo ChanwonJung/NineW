@@ -1,0 +1,1 @@
+export default function BrandLogo(){return <span className="brand-logo" aria-label="나인더블유 유학미술"><span className="brand-name" aria-hidden="true">NINE<span className="brand-dot">·</span>W</span></span>;}

@@ -1,0 +1,361 @@
+@import "tailwindcss";
+:root { --color-paper:#fcfcfa; --color-paper-dim:#f0f0ed; --color-ink:#20211f; --color-muted:#666963; --color-line:#d8dad4; --color-accent:#243fc1; --color-accent-dark:#193095; }
+@theme inline { --color-paper:var(--color-paper); --color-paper-dim:var(--color-paper-dim); --color-ink:var(--color-ink); --color-muted:var(--color-muted); --color-line:var(--color-line); --color-accent:var(--color-accent); --color-accent-dark:var(--color-accent-dark); --font-serif:var(--font-noto-sans-kr); --font-sans:var(--font-noto-sans-kr); }
+body { background:var(--color-paper); color:var(--color-ink); }
+::selection { background:#dbe0ff; color:#20211f; }
+a,button { -webkit-tap-highlight-color:transparent; }
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible { outline:2px solid var(--color-accent); outline-offset:5px; }
+[id] { scroll-margin-top:110px; }
+.eyebrow { font-family:Arial,sans-serif; font-size:11px; font-weight:600; letter-spacing:.12em; }
+.home-intro { padding-top:25px; border-bottom:1px solid var(--color-line); }
+.intro-meta { display:flex; justify-content:space-between; font-size:11px; color:var(--color-muted); }
+.intro-meta span:last-child { font-family:Arial,sans-serif; letter-spacing:.09em; }
+.intro-grid { display:grid; grid-template-columns:1fr 1.18fr; gap:5%; align-items:center; padding:45px 0 35px; }
+.intro-copy { padding:25px 0; }
+.intro-copy .eyebrow { color:var(--color-accent); }
+.intro-copy h1 { margin-top:25px; font-size:clamp(32px,3.45vw,52px); font-weight:500; letter-spacing:-.065em; line-height:1.4; word-break:keep-all; }
+.intro-description { margin-top:25px; font-size:14px; line-height:1.95; color:var(--color-muted); word-break:keep-all; }
+.editorial-link { display:inline-flex; align-items:center; gap:28px; padding:10px 0; border-bottom:1px solid currentColor; font-size:12px; font-weight:500; transition:color .2s; }
+.editorial-link:hover { color:var(--color-accent); }
+.editorial-link span { font-size:20px; }
+.intro-copy>.editorial-link { margin-top:27px; }
+.intro-note { margin-top:65px; display:flex; align-items:center; gap:18px; }
+.note-mark { font-family:Arial,sans-serif; font-size:26px; letter-spacing:-.08em; font-weight:800; }
+.intro-note p { border-left:1px solid var(--color-line); padding-left:18px; font-size:11px; line-height:1.8; color:var(--color-muted); }
+.intro-art-image { position:relative; aspect-ratio:1/1.07; background:#efefeb; }
+.intro-art-image img { padding:22px; }
+.intro-art figcaption { display:flex; justify-content:space-between; margin-top:12px; font-size:9px; letter-spacing:.05em; color:var(--color-muted); }
+.editorial-section { padding:95px 0; }
+.section-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:38px; }
+h2 { word-break:keep-all; }
+.section-heading h2,.studio-copy h2 { margin-top:15px; font-size:30px; font-weight:500; line-height:1.5; letter-spacing:-.055em; }
+.section-description { font-size:13px; line-height:1.9; color:var(--color-muted); }
+.works-grid { display:grid; grid-template-columns:1.1fr .85fr 1fr; gap:28px; align-items:start; }
+.work-entry:nth-child(2) { padding-top:68px; }
+.work-entry:nth-child(3) { padding-top:25px; }
+.work-image { position:relative; aspect-ratio:4/5; background:#eee; overflow:hidden; }
+.work-image-1 { aspect-ratio:1; background:#232323; }
+.work-image-2 { aspect-ratio:4/4.8; }
+.work-image img { transition:transform .4s; }
+.work-entry:hover img { transform:scale(1.025); }
+.work-entry figcaption { margin-top:17px; }
+.work-category { font-family:Arial,sans-serif; font-size:9px; letter-spacing:.1em; color:var(--color-muted); }
+.work-entry h3 { font-size:14px; margin-top:5px; }
+.studio-section { padding:70px 0; background:var(--color-paper-dim); }
+.studio-grid { display:grid; grid-template-columns:1.05fr 1fr; gap:8%; align-items:center; }
+.studio-photo { position:relative; aspect-ratio:4/5; }
+.studio-copy>p:not(.eyebrow) { margin-top:24px; font-size:14px; line-height:1.95; color:var(--color-muted); word-break:keep-all; }
+.studio-details { margin:25px 0; }
+.studio-details>div { padding:14px 0; border-top:1px solid var(--color-line); }
+.studio-details span { font-size:12px; font-weight:500; }
+.studio-details p { font-size:12px; color:var(--color-muted); margin-top:5px; line-height:1.7; }
+.program-row { display:grid; grid-template-columns:65px 1fr 1.5fr 25px; gap:20px; align-items:center; padding:29px 0; border-top:1px solid var(--color-line); transition:color .2s; }
+.program-row:last-child { border-bottom:1px solid var(--color-line); }
+.program-row:hover { color:var(--color-accent); }
+.program-index { font-family:Arial,sans-serif; font-size:12px; color:var(--color-muted); }
+.program-row h3 { font-size:22px; letter-spacing:-.04em; }
+.program-row p { font-size:13px; line-height:1.8; color:var(--color-muted); }
+.program-arrow { font-size:24px; }
+.results-section { padding:65px 0 90px; border-top:1px solid var(--color-line); }
+.results-description { font-size:13px; color:var(--color-muted); margin-bottom:25px; }
+.school-list { display:flex; flex-wrap:wrap; gap:0 32px; }
+.school-list span { padding:15px 0; font-family:var(--font-noto-sans-kr),sans-serif; font-size:20px; font-weight:500; letter-spacing:-.025em; }
+.consult-section { padding:65px 0; background:var(--color-accent); color:white; }
+.consult-inner { display:flex; justify-content:space-between; gap:40px; align-items:center; }
+.consult-section h2 { margin-top:18px; font-size:34px; font-weight:500; letter-spacing:-.05em; }
+.consult-description { max-width:480px; margin-top:17px; font-size:13px; line-height:1.9; color:#e0e5ff; }
+.consult-actions { display:flex; flex-direction:column; min-width:230px; gap:15px; font-size:12px; }
+.consult-primary { padding:18px 20px; display:flex; justify-content:space-between; background:var(--color-paper); color:var(--color-ink); font-size:14px; }
+.site-wordmark { font-family:Arial,sans-serif; font-weight:800; font-size:31px; letter-spacing:-.085em; }
+/* Shared surfaces follow the same quiet, square-edged visual language. */
+.rounded-2xl,.rounded-xl,.rounded-full { border-radius:0; }
+@media(min-width:1280px) { .max-w-6xl { max-width:1280px; padding-left:48px; padding-right:48px; } }
+@media(max-width:1023px) { .intro-copy h1 { font-size:34px; } .intro-note { margin-top:36px; } .studio-grid { gap:5%; } }
+@media(max-width:767px) { .intro-grid { grid-template-columns:1fr; padding-top:20px; gap:25px; } .intro-copy h1 { font-size:38px; } .intro-copy { padding:20px 0 0; } .intro-note { display:none; } .intro-art-image { aspect-ratio:1.1; } .intro-art-image img { padding:15px; } .editorial-section { padding:60px 0; } .section-heading { align-items:flex-start; flex-direction:column; gap:15px; margin-bottom:27px; } .section-heading h2,.studio-copy h2 { font-size:26px; } .works-grid { grid-template-columns:1fr; gap:32px; } .work-entry:nth-child(n) { padding-top:0; } .work-image { aspect-ratio:1.1; } .studio-section { padding:35px 0 50px; } .studio-grid { grid-template-columns:1fr; gap:35px; } .studio-photo { aspect-ratio:1.2; } .program-row { grid-template-columns:25px 1fr 20px; gap:12px; padding:22px 0; } .program-row h3 { font-size:20px; } .program-row p { grid-column:2; grid-row:2; } .program-arrow { grid-column:3; grid-row:1; } .results-section { padding:45px 0 55px; } .school-list { gap:0 22px; } .school-list span { font-size:17px; padding:10px 0; } .consult-inner { flex-direction:column; align-items:stretch; gap:30px; } .consult-section h2 { font-size:29px; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none!important; scroll-behavior:auto!important; } }
+.hero-slideshow { min-width:0; }
+.slideshow-viewport { overflow:hidden; touch-action:pan-y pinch-zoom; }
+.hero-slide { position:absolute; inset:0; }
+.hero-slide.is-hidden { visibility:hidden; }
+.hero-slide.is-current { z-index:2; }
+.hero-slide.is-previous { z-index:1; visibility:hidden; }
+.hero-slide.has-motion.is-current.moves-right { animation:slide-enter-right 650ms cubic-bezier(.22,.61,.36,1) both; }
+.hero-slide.has-motion.is-previous.moves-right { animation:slide-exit-right 650ms cubic-bezier(.22,.61,.36,1) both; }
+.hero-slide.has-motion.is-current.moves-left { animation:slide-enter-left 650ms cubic-bezier(.22,.61,.36,1) both; }
+.hero-slide.has-motion.is-previous.moves-left { animation:slide-exit-left 650ms cubic-bezier(.22,.61,.36,1) both; }
+@keyframes slide-enter-right { from { transform:translateX(-100%); } to { transform:translateX(0); } }
+@keyframes slide-exit-right { from { transform:translateX(0); visibility:visible; } to { transform:translateX(100%); visibility:hidden; } }
+@keyframes slide-enter-left { from { transform:translateX(100%); } to { transform:translateX(0); } }
+@keyframes slide-exit-left { from { transform:translateX(0); visibility:visible; } to { transform:translateX(-100%); visibility:hidden; } }
+.slideshow-caption { display:flex; justify-content:space-between; gap:12px; margin-top:12px; font-size:11px; color:var(--color-muted); line-height:1.6; }
+.slideshow-caption>span:last-child { white-space:nowrap; font-family:Arial,sans-serif; font-variant-numeric:tabular-nums; }
+.slideshow-controls { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:8px; }
+.slideshow-dots,.slideshow-buttons { display:flex; align-items:center; }
+.slideshow-dots button { width:22px; height:44px; display:grid; place-items:center; cursor:pointer; }
+.slideshow-dots button span { width:5px; height:5px; border-radius:50%; background:#b3b6ae; }
+.slideshow-dots button[aria-current="true"] span { background:var(--color-accent); width:7px; height:7px; }
+.slideshow-buttons button { height:44px; min-width:36px; cursor:pointer; font-size:16px; }
+.slideshow-buttons button:nth-child(2) { font-size:11px; }
+.slideshow-buttons button:hover { color:var(--color-accent); }
+@media(max-width:360px) { .slideshow-dots button { width:19px; } .slideshow-buttons button { min-width:30px; } }
+@media(prefers-reduced-motion:reduce) { .hero-slide { animation:none!important; } }
+.school-home-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--color-line);border-left:1px solid var(--color-line);margin-top:35px}
+.school-home-entry {padding:25px 26px 23px;border-right:1px solid var(--color-line);border-bottom:1px solid var(--color-line);transition:background .2s}
+.school-home-entry:hover {background:var(--color-paper-dim)}
+.school-home-top {display:flex;justify-content:space-between;gap:10px;font-size:10px;color:var(--color-muted)}
+.school-home-top>span:last-child {font-size:19px;color:var(--color-accent)}
+.school-home-entry h3 {font-family:Arial,sans-serif;font-size:38px;letter-spacing:-.05em;font-weight:600;margin:25px 0 6px}
+.school-home-entry>p {font-size:12px;color:var(--color-muted)}
+.school-home-foot {display:flex;flex-direction:column;gap:6px;margin-top:27px;font-size:11px;line-height:1.65}
+.school-home-foot>span {color:var(--color-muted)}
+.school-home-foot strong {font-weight:500}
+.school-home-bottom {display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:23px}
+.school-home-bottom>p {font-size:11px;line-height:1.8;color:var(--color-muted)}
+.school-page-hero {padding:70px 0 45px;border-bottom:1px solid var(--color-line)}
+.school-page-hero .eyebrow {color:var(--color-accent)}
+.school-page-hero h1 {font-size:clamp(36px,4.8vw,64px);line-height:1.35;letter-spacing:-.06em;font-weight:500;margin-top:24px}
+.school-hero-bottom {display:flex;align-items:end;justify-content:space-between;gap:24px;margin-top:30px}
+.school-hero-bottom>p {font-size:14px;line-height:1.9;color:var(--color-muted)}
+.school-hero-bottom>span {font-size:11px;color:var(--color-muted)}
+.school-directory-body {padding-top:40px;padding-bottom:75px}
+.school-directory-intro {display:flex;align-items:start;justify-content:space-between;gap:25px;margin-bottom:35px}
+.school-directory-intro>p {font-size:12px;line-height:1.9;color:var(--color-muted)}
+.school-tools {display:flex;align-items:center;justify-content:space-between;gap:20px}
+.school-filters {display:flex;gap:5px;flex-wrap:wrap}
+.school-filters button {padding:12px 17px;border:1px solid var(--color-line);font-size:12px;cursor:pointer;min-height:44px}
+.school-filters button[aria-pressed="true"] {background:var(--color-ink);color:var(--color-paper);border-color:var(--color-ink)}
+.school-search input {max-width:100%;width:240px;padding:12px 10px;border-bottom:1px solid var(--color-ink);font-size:13px}
+.school-count {margin:22px 0 15px;font-size:11px;color:var(--color-muted)}
+.school-directory-entry {display:grid;grid-template-columns:1fr 1.2fr .8fr;align-items:center;gap:35px;padding:32px 0;border-top:1px solid var(--color-line)}
+.school-directory-entry:last-child {border-bottom:1px solid var(--color-line)}
+.school-entry-main {display:flex;align-items:center;gap:18px}
+.school-thumb {flex:0 0 auto;width:56px;height:56px;display:flex;align-items:center;justify-content:center;text-align:center;padding:4px;border:1px solid var(--color-line);font-family:Arial,sans-serif;font-weight:700;font-size:9px;letter-spacing:.03em;line-height:1.15;text-transform:uppercase;color:var(--school-accent,var(--color-accent));background:color-mix(in srgb,var(--school-accent,var(--color-accent)) 12%,var(--color-paper))}
+.school-thumb-lg {width:84px;height:84px;font-size:12px;margin-top:15px}
+.school-detail-heading {display:flex;align-items:center;gap:20px}
+.school-location {font-size:10px;color:var(--color-muted)}
+.school-directory-entry h2 {font-family:Arial,sans-serif;font-size:35px;letter-spacing:-.04em;margin-top:8px;font-weight:600}
+.school-directory-entry:hover h2 {color:var(--color-accent)}
+.school-korean {font-size:12px;margin-top:4px}
+.school-entry-description>p {font-size:13px;line-height:1.9;word-break:keep-all}
+.school-entry-description>span {display:block;margin-top:12px;font-size:11px;color:var(--color-muted)}
+.school-entry-end {display:flex;justify-content:space-between;align-items:center;gap:15px;font-size:12px}
+.school-entry-end>span:last-child {font-size:24px;color:var(--color-accent)}
+.school-empty {padding:50px 0;text-align:center;font-size:14px}
+.school-empty button {margin-top:16px;text-decoration:underline;cursor:pointer;min-height:44px}
+.school-bottom {padding:50px 0;background:var(--color-paper-dim)}
+.school-bottom h2 {font-size:24px;letter-spacing:-.04em}
+.school-bottom p {font-size:13px;line-height:1.8;color:var(--color-muted);margin-top:15px}
+.school-bottom .editorial-link {margin-top:20px;margin-right:30px}
+.school-detail-hero {padding:28px 0 0;border-bottom:1px solid var(--color-line)}
+.school-back {display:inline-block;font-size:12px;color:var(--color-muted);padding:12px 0;margin-bottom:35px}
+.school-detail-hero h1 {font-family:Arial,sans-serif;font-size:clamp(60px,9vw,110px);letter-spacing:-.065em;line-height:1.1;font-weight:600;margin:15px 0}
+.school-fullname {font-family:Arial,sans-serif;font-size:16px;line-height:1.5}
+.school-detail-korean {font-size:13px;color:var(--color-muted);margin-top:7px}
+.school-detail-intro {font-size:17px;line-height:1.9;max-width:670px;word-break:keep-all;margin:30px 0}
+.school-facts {display:grid;grid-template-columns:1.25fr 1.25fr 1fr;border-top:1px solid var(--color-line);padding:22px 0;gap:20px}
+.school-facts dt {font-size:11px;color:var(--color-muted);margin-bottom:8px}
+.school-facts dd {font-size:13px;line-height:1.7}
+.school-detail-layout {display:grid;grid-template-columns:220px minmax(0,1fr);gap:8%;padding-top:60px;padding-bottom:50px}
+.school-detail-nav {position:sticky;top:110px;align-self:start;display:flex;flex-direction:column;gap:17px;font-size:12px}
+.school-detail-nav>p {font-weight:500;margin-bottom:7px}
+.school-detail-nav>a {color:var(--color-muted);padding:5px 0}
+.school-detail-nav>a:hover {color:var(--color-accent)}
+.school-detail-content section {padding-bottom:50px;margin-bottom:45px;border-bottom:1px solid var(--color-line)}
+.school-detail-content h2 {font-size:27px;letter-spacing:-.045em;line-height:1.5;margin:14px 0 23px;font-weight:500}
+.school-requirement-highlight {font-size:23px;color:var(--color-accent);margin:24px 0}
+.school-requirements {padding-left:18px;list-style:disc}
+.school-requirements li {font-size:14px;line-height:2;margin:12px 0;padding-left:5px;word-break:keep-all}
+.school-scope-note {font-size:12px;line-height:1.9;color:var(--color-muted);margin-top:18px;word-break:keep-all}
+.school-source-inline {display:inline-block;margin-top:16px;font-size:12px;color:var(--color-accent);text-decoration:underline;text-underline-offset:4px}
+.school-dates>div {display:flex;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--color-line)}
+.school-dates dt {font-size:13px;line-height:1.7}
+.school-dates dd {font-size:18px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.school-advice {background:var(--color-paper-dim);padding:30px}
+.school-advice-row {display:flex;gap:18px;margin:24px 0}
+.school-advice-row>span {font-size:11px;color:var(--color-accent);padding-top:4px}
+.school-advice-row>p {font-size:14px;line-height:1.95;word-break:keep-all}
+.school-sources {margin-top:22px}
+.school-sources a {display:flex;justify-content:space-between;gap:15px;padding:17px 0;border-bottom:1px solid var(--color-line);font-size:13px;line-height:1.7}
+.school-sources a:hover {color:var(--color-accent)}
+.school-contact h2 {font-size:24px}
+.school-contact>p {font-size:13px;line-height:1.9;color:var(--color-muted)}
+.school-contact .editorial-link {margin-top:18px}
+.school-other {padding-bottom:65px;display:flex;justify-content:space-between;gap:20px}
+.school-result-notice {border-left:2px solid var(--color-accent);padding-left:20px;font-size:13px;line-height:1.9;color:var(--color-muted)}
+.school-result-notice a {color:var(--color-accent);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px) {
+.school-detail-layout {grid-template-columns:1fr;gap:30px}
+.school-detail-nav {position:static;flex-direction:row;flex-wrap:wrap;gap:10px 22px;border-bottom:1px solid var(--color-line);padding-bottom:20px}
+.school-detail-nav>p {width:100%}
+.school-directory-entry {grid-template-columns:1fr 1.2fr;gap:20px}
+.school-entry-end {grid-column:2}
+}
+@media(max-width:640px) {
+.school-home-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+.school-home-entry {padding:18px 14px}
+.school-home-entry h3 {font-size:29px}
+.school-home-top {font-size:9px}
+.school-home-bottom,.school-hero-bottom,.school-directory-intro {flex-direction:column;align-items:start}
+.school-page-hero {padding-top:40px}
+.school-thumb-lg {width:56px;height:56px;font-size:9px;margin-top:10px}
+.school-tools {align-items:stretch;flex-direction:column}
+.school-search input {width:100%}
+.school-filters button {padding:10px 13px}
+.school-directory-entry {grid-template-columns:1fr;gap:16px}
+.school-entry-end {grid-column:1}
+.school-facts {grid-template-columns:1fr;gap:17px}
+.school-facts>div {display:grid;grid-template-columns:85px 1fr;gap:10px}
+.school-facts dt {margin:0;padding-top:3px}
+.school-detail-intro {font-size:15px}
+.school-detail-layout {padding-top:30px}
+.school-detail-content h2 {font-size:24px}
+.school-advice {padding:23px 18px}
+.school-dates dd {font-size:16px}
+.school-other {flex-direction:column;align-items:start}
+}
+
+.school-education-text {font-size:15px;line-height:2;word-break:keep-all}
+.school-detail-hero .eyebrow {font-family:var(--font-noto-sans-kr),sans-serif}
+/* Home: short introductions, generous typography, details on dedicated pages. */
+.header-menu-link {font-size:16px;font-weight:500;white-space:nowrap}
+header nav.hidden {gap:25px}
+.home-intro {padding-top:30px}
+.intro-grid {grid-template-columns:1fr 1.15fr;gap:6%;padding:42px 0 28px}
+.intro-copy h1 {font-size:clamp(36px,4.1vw,60px);font-weight:600;line-height:1.35;letter-spacing:-.065em}
+.intro-description {font-size:17px;line-height:1.9}
+.eyebrow {font-family:var(--font-noto-sans-kr),Arial,sans-serif;font-size:12px;letter-spacing:.1em}
+.editorial-link {font-size:14px}
+.home-philosophy,.home-acceptances,.home-schools {padding:95px 0}
+.home-philosophy {border-bottom:1px solid var(--color-line)}
+.philosophy-grid {display:grid;grid-template-columns:1.15fr 1fr;gap:10%;margin-top:30px}
+.philosophy-grid h2,.home-acceptances h2,.home-schools h2 {font-size:clamp(30px,3.3vw,46px);line-height:1.45;font-weight:500;letter-spacing:-.055em;word-break:keep-all}
+.philosophy-grid p {font-size:16px;line-height:2;word-break:keep-all;color:var(--color-muted);margin-bottom:18px}
+.home-acceptances {background:#f1f2ee}
+.acceptance-caption {color:var(--color-muted);font-size:13px;margin-bottom:20px}
+.acceptance-names {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 42px}
+.acceptance-names a {font-family:Arial,sans-serif;font-size:clamp(28px,3vw,42px);letter-spacing:-.04em;padding:20px 0;border-top:1px solid #c9ccc4;display:flex;align-items:center;justify-content:space-between}
+.acceptance-names a span {font-size:20px;color:var(--color-muted)}
+.acceptance-names a:hover {color:var(--color-accent)}
+.accepted-student-list {display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.accepted-student-list>div {display:flex;gap:24px;padding:22px 0;border-top:1px solid var(--color-line);align-items:center}
+.accepted-student-list strong {font-size:26px;font-weight:500}
+.school-home-grid {gap:34px 24px;border:0;margin-top:36px}
+.school-home-entry {padding:0;border:0;min-width:0}
+.school-home-entry:hover {background:transparent}
+.school-campus-photo {position:relative;aspect-ratio:16/10;overflow:hidden;background:#e8e8e4}
+.school-campus-photo img {object-fit:cover;transition:transform .4s}
+.school-home-entry:hover .school-campus-photo img {transform:scale(1.025)}
+.school-card-label {display:flex;align-items:center;gap:14px;padding:18px 0;border-bottom:1px solid var(--color-line)}
+.school-logo {display:flex;align-items:center;justify-content:center;flex:0 0 66px;width:66px;height:58px;background:#fff;padding:7px}
+.school-logo img {width:100%;height:100%;object-fit:contain}
+.school-home-entry h3 {font-size:27px;margin:0 0 5px;line-height:1.1;letter-spacing:-.035em}
+.school-card-label p {font-size:11px;color:var(--color-muted);word-break:keep-all}
+.school-card-arrow {margin-left:auto;color:var(--color-muted)}
+.photo-credit-link {display:inline-block;font-size:11px;color:var(--color-muted);margin-top:25px;text-decoration:underline;text-underline-offset:3px}
+.school-directory-entry {grid-template-columns:180px 1.1fr 1fr;gap:24px}
+.school-directory-entry>.school-campus-photo {grid-row:span 2;height:145px;aspect-ratio:auto}
+.school-directory-entry .school-entry-description {grid-column:3;grid-row:1 / span 2}
+.school-entry-end {grid-column:2;font-size:12px}
+.school-directory-entry h2 {font-size:32px}
+.school-photo-credits {margin-top:35px;padding-top:20px;border-top:1px solid var(--color-line)}
+.school-photo-credits summary {cursor:pointer;font-size:13px;padding:10px 0}
+.photo-credit {font-size:11px;line-height:1.8;color:var(--color-muted);margin:14px 0 22px}
+.photo-credit a {text-decoration:underline;text-underline-offset:3px}
+.school-detail-heading .school-logo {width:90px;flex-basis:90px;height:85px}
+.school-detail-content .school-campus-photo {aspect-ratio:16/9}
+.consult-section {background:#202521}
+.consult-section h2 {font-size:clamp(30px,3.3vw,44px)}
+.consult-description {color:#cbd1cb;font-size:15px}
+.consult-section .eyebrow {color:#cbd1cb}
+.admin-shell {max-width:1000px;margin:auto;padding:65px 24px;min-height:65vh}
+.admin-shell h1 {font-size:36px;margin-bottom:15px;letter-spacing:-.045em}
+.admin-shell input {border:1px solid var(--color-line);padding:12px;max-width:100%}
+.admin-shell button {padding:12px 20px;border:1px solid var(--color-line);cursor:pointer}
+.admin-toolbar {display:flex;gap:15px;flex-wrap:wrap;align-items:center;margin:22px 0}
+.admin-notice {padding:16px;background:#eff3e9;margin:20px 0}
+.admin-inquiry {border-top:1px solid var(--color-line);padding:24px 0}
+.admin-inquiry h2 {font-size:22px}
+.admin-inquiry p {white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0;line-height:1.8}
+.admin-inquiry time {font-size:12px;color:var(--color-muted)}
+@media(max-width:1023px) {
+ .philosophy-grid {gap:6%}
+ .school-home-grid {gap:28px 18px}
+ .school-card-label {gap:8px}
+ .school-logo {flex-basis:48px;width:48px;height:48px;padding:5px}
+ .school-home-entry h3 {font-size:24px}
+}
+@media(max-width:767px) {
+ .intro-grid {grid-template-columns:1fr;gap:28px;padding:20px 0}
+ .intro-copy {padding:10px 0}
+ .intro-copy h1 {font-size:clamp(34px,7.5vw,52px);margin-top:20px}
+ .intro-description {font-size:15px;margin-top:20px}
+ .home-philosophy,.home-acceptances,.home-schools {padding:55px 0}
+ .philosophy-grid {grid-template-columns:1fr;gap:26px}
+ .philosophy-grid p {font-size:15px}
+ .acceptance-names {grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
+ .school-home-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 16px}
+ .school-home-entry h3 {font-size:23px}
+ .school-card-label {gap:8px;flex-wrap:wrap;align-content:start;align-items:center}
+ .school-card-label>div {flex:1;min-width:0}
+ .school-card-label p {font-size:10px;line-height:1.6}
+ .school-card-arrow {display:none}
+ .school-directory-entry {grid-template-columns:130px minmax(0,1fr);gap:18px}
+ .school-directory-entry>.school-campus-photo {height:110px;grid-column:1;grid-row:1}
+ .school-directory-entry .school-entry-description {grid-row:2;grid-column:1 / -1}
+ .school-directory-entry .school-entry-end {grid-column:1 / -1}
+ .school-entry-main {gap:10px}
+ .school-directory-entry h2 {font-size:28px}
+ .accepted-student-list {grid-template-columns:1fr}
+}
+@media(max-width:380px) {
+ .school-logo {flex-basis:35px;width:35px;height:40px;padding:3px}
+ .school-home-entry h3 {font-size:21px}
+ .school-directory-entry {grid-template-columns:100px minmax(0,1fr)}
+ .school-detail-heading .school-logo {flex-basis:60px;width:60px;height:60px}
+}
+
+/* NineW identity follows the supplied wordmark; typography stays crisp at small sizes. */
+.brand-home-link {display:inline-flex;flex-shrink:0}
+.brand-logo {display:flex;flex-direction:column;width:164px;color:#141613}
+.brand-name {display:flex;align-items:center;justify-content:space-between;font-family:Arial,sans-serif;font-size:27px;font-weight:500;letter-spacing:.2em;line-height:1.1;border-bottom:0;padding-bottom:0}
+.brand-dot {letter-spacing:0;font-size:29px;line-height:.7;margin:0 5px 0 0}
+.brand-caption {display:flex;align-items:center;justify-content:space-between;padding-top:7px;font-size:8px;letter-spacing:.19em;font-weight:500;line-height:1}
+.brand-caption>span:last-child {font-family:Arial,sans-serif;font-size:7px;letter-spacing:.13em}
+header nav.hidden {gap:38px}
+.home-intro {padding-top:18px}
+.intro-grid {padding:26px 0 18px;gap:5%}
+.intro-art-image {aspect-ratio:1.1}
+.home-philosophy,.home-acceptances,.home-schools {padding:62px 0}
+.philosophy-grid {margin-top:23px;gap:7%}
+.home-schools .school-home-grid {margin-top:25px;gap:24px}
+.section-heading {margin-bottom:25px}
+.school-campus-photo img {transition:transform .55s cubic-bezier(.2,.65,.3,1)}
+.school-home-entry:hover .school-campus-photo img {transform:scale(1.045)}
+.school-card-arrow,.editorial-link>span {transition:transform .25s}
+.school-home-entry:hover .school-card-arrow,.editorial-link:hover>span {transform:translate(3px,-3px)}
+.enter-view {animation:appear-in-view .65s cubic-bezier(.2,.7,.3,1) both}
+@keyframes appear-in-view {from {opacity:.25;transform:translateY(18px)}to {opacity:1;transform:translateY(0)}}
+.about-director {padding:55px 0 65px}
+.director-layout {display:grid;grid-template-columns:1fr 1.05fr;gap:7%;align-items:center}
+.director-image {position:relative;aspect-ratio:1.12;overflow:hidden;background:var(--color-paper-dim)}
+.director-image>span {position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.65));padding:40px 22px 20px;color:white;font-size:13px}
+.director-copy h2 {font-size:clamp(25px,2.8vw,38px);line-height:1.5;letter-spacing:-.045em;margin:18px 0 24px;font-weight:500}
+.director-copy h2 span {white-space:nowrap}
+.director-copy>p:not(.eyebrow) {font-size:16px;line-height:2;word-break:keep-all;margin:15px 0;color:var(--color-muted)}
+.director-teaching {border-top:1px solid var(--color-line);display:flex;gap:20px;flex-wrap:wrap;padding:20px 0 10px;margin-top:25px;font-size:14px}
+.director-teaching strong {font-weight:500;color:var(--color-accent)}
+.about-philosophy {padding:60px 0;background:var(--color-paper-dim)}
+@media(max-width:1100px) and (min-width:1024px) {header nav.hidden {gap:25px}.header-menu-link {font-size:15px}.brand-logo {width:147px}}
+@media(max-width:767px) {
+ .brand-logo {width:145px}
+ .brand-name {font-size:24px;padding-bottom:0}
+ .brand-caption {font-size:7px;padding-top:6px}
+ .home-philosophy,.home-acceptances,.home-schools {padding:40px 0}
+ .intro-grid {padding-top:12px;gap:20px}
+ .home-schools .school-home-grid {gap:20px 14px}
+ .director-layout {grid-template-columns:1fr;gap:28px}
+ .about-director {padding:30px 0 40px}
+ .director-copy>p:not(.eyebrow) {font-size:15px}
+ .about-philosophy {padding:40px 0}
+}
+@media(prefers-reduced-motion:reduce) {.enter-view {animation:none!important}}
