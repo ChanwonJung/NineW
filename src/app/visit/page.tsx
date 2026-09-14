@@ -22,6 +22,13 @@ export default function VisitPage() {
         <Container className="grid gap-10 py-14 sm:py-20 lg:grid-cols-2">
           <div className="space-y-8">
             <div>
+              <h2 className="font-serif text-xl font-semibold text-ink">주소</h2>
+              <p className="mt-2 text-sm leading-relaxed text-ink/85">
+                {siteConfig.address.fullAddress}
+              </p>
+            </div>
+
+            <div>
               <h2 className="font-serif text-xl font-semibold text-ink">지하철로 오실 때</h2>
               <p className="mt-2 text-sm leading-relaxed text-ink/85">
                 {siteConfig.address.subway}
@@ -55,11 +62,6 @@ export default function VisitPage() {
             >
               네이버 지도에서 위치 보기 →
             </a>
-
-            <p className="text-sm text-muted">
-              [확인 필요] 정확한 지번·도로명 주소와 건물 출입 안내는 담당자 확인 후
-              추가합니다.
-            </p>
           </div>
 
           <div id="consult-form" className="scroll-mt-24 rounded-2xl border border-line bg-paper-dim p-6 sm:p-8">

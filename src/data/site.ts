@@ -15,8 +15,7 @@ export const siteConfig = {
     subway: "3호선 매봉역 4번 출구에서 대치중학교 방향으로 도보 약 3분",
     subwayAlt: "3호선 양재역 5번 출구에서 도보 약 12분",
     parking: "건물 내 주차는 불가능합니다. 대중교통이나 인근 유료 주차장을 이용해 주세요.",
-    // [확인 필요] 정확한 지번/도로명 주소, 건물명, 층수는 담당자 확인 후 채워 주세요.
-    fullAddress: "",
+    fullAddress: "서울 강남구 논현로30길 51 4F",
   },
   classHours: {
     days: "평일·주말 운영",

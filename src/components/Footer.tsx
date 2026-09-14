@@ -49,6 +49,10 @@ export default function Footer() {
 
       <div className="border-t border-line px-4 py-5 text-center text-xs text-muted sm:px-6">
         © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+        {" · "}
+        <Link href="/privacy" className="hover:text-accent">
+          개인정보 처리방침
+        </Link>
       </div>
     </footer>
   );
