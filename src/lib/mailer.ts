@@ -2,7 +2,7 @@ import "server-only";
 import nodemailer from "nodemailer";
 import type { Inquiry } from "@/lib/consult-db";
 
-const notifyTo = process.env.CONSULT_NOTIFY_EMAIL || "great3542@gmail.com";
+const notifyTo = process.env.CONSULT_NOTIFY_EMAIL || "ninew_studio@naver.com";
 
 function transport() {
   const user = process.env.GMAIL_USER;
