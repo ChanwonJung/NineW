@@ -2,6 +2,7 @@
 import {useRef,useState,type FormEvent} from "react";
 import Link from "next/link";
 import { programs } from "@/data/programs";
+import { trackEvent } from "@/lib/analytics";
 const field="mt-2 w-full border border-line bg-paper px-4 py-3 text-base text-ink outline-none focus:border-accent";
 export default function ConsultForm(){
  const [status,setStatus]=useState<"idle"|"sending"|"done">("idle"),[error,setError]=useState("");
@@ -9,7 +10,7 @@ export default function ConsultForm(){
  async function submit(e:FormEvent<HTMLFormElement>){
   e.preventDefault();if(busy.current)return;busy.current=true;setStatus("sending");setError("");
   const form=new FormData(e.currentTarget);
-  try{const res=await fetch("/api/consultations",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:form.get("name"),phone:form.get("phone"),program:form.get("program"),message:form.get("message"),consent:form.get("consent")==="on",website:form.get("website")})});const data=await res.json();if(!res.ok)throw Error(data.error||"접수하지 못했습니다.");setStatus("done");}
+  try{const res=await fetch("/api/consultations",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:form.get("name"),phone:form.get("phone"),program:form.get("program"),message:form.get("message"),consent:form.get("consent")==="on",website:form.get("website")})});const data=await res.json();if(!res.ok)throw Error(data.error||"접수하지 못했습니다.");setStatus("done");trackEvent("generate_lead",{form_location:"visit_page"});}
   catch(e){setError(e instanceof Error?e.message:"연결을 확인하고 다시 시도해 주세요.");setStatus("idle");}finally{busy.current=false;}
  }
  if(status==="done")return <div role="status" className="border border-line bg-paper p-8"><h3 className="text-2xl">상담 신청이 접수되었습니다.</h3><p className="mt-4 leading-relaxed text-muted">남겨주신 내용을 확인한 뒤 연락드리겠습니다.</p></div>;

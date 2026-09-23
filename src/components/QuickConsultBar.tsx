@@ -1,0 +1,117 @@
+"use client";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
+
+const DISMISS_KEY = "quick-consult-dismissed";
+
+export default function QuickConsultBar() {
+  const pathname = usePathname();
+  const [visible, setVisible] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
+  const [error, setError] = useState("");
+  const busy = useRef(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      try {
+        if (sessionStorage.getItem(DISMISS_KEY) !== "1") setVisible(true);
+      } catch {
+        setVisible(true);
+      }
+    }, 0);
+    return () => clearTimeout(t);
+  }, []);
+
+  if (pathname?.startsWith("/admin") || !visible) return null;
+
+  function dismiss() {
+    try {
+      sessionStorage.setItem(DISMISS_KEY, "1");
+    } catch {}
+    setVisible(false);
+  }
+
+  async function submit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (busy.current) return;
+    busy.current = true;
+    setStatus("sending");
+    setError("");
+    const form = new FormData(e.currentTarget);
+    try {
+      const res = await fetch("/api/consultations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.get("name"),
+          phone: form.get("phone"),
+          program: "상담 후 결정",
+          message: "",
+          consent: form.get("consent") === "on",
+          website: form.get("website"),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "접수하지 못했습니다.");
+      setStatus("done");
+      trackEvent("generate_lead", { form_location: "quick_bar" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "연결을 확인하고 다시 시도해 주세요.");
+      setStatus("idle");
+    } finally {
+      busy.current = false;
+    }
+  }
+
+  return (
+    <div className="quick-consult-bar" role="complementary" aria-label="빠른 상담 신청">
+      <div className="quick-consult-inner">
+        {status === "done" ? (
+          <p className="quick-consult-done">상담 신청이 접수되었습니다. 확인 후 연락드리겠습니다.</p>
+        ) : (
+          <form onSubmit={submit} className="quick-consult-form">
+            <span className="quick-consult-label">
+              <span className="eyebrow">QUICK CONSULT</span>
+              <span className="quick-consult-title">지금 상담 신청하기</span>
+            </span>
+            <span className="quick-consult-fields">
+              <input name="name" type="text" placeholder="이름" required maxLength={60} autoComplete="name" />
+              <input name="phone" type="tel" placeholder="연락처" required maxLength={20} autoComplete="tel" />
+              <div hidden aria-hidden="true">
+                <label>
+                  Website
+                  <input name="website" tabIndex={-1} autoComplete="off" />
+                </label>
+              </div>
+              <label className="quick-consult-consent">
+                <input name="consent" type="checkbox" required />
+                <span>
+                  <Link href="/privacy">개인정보 수집·이용</Link>&nbsp;동의
+                </span>
+              </label>
+            </span>
+            <button type="submit" className="quick-consult-submit" disabled={status === "sending"}>
+              {status === "sending" ? (
+                "접수 중…"
+              ) : (
+                <>
+                  상담 신청 <span aria-hidden="true">↗</span>
+                </>
+              )}
+            </button>
+            {error && (
+              <span role="alert" className="quick-consult-error">
+                {error}
+              </span>
+            )}
+          </form>
+        )}
+        <button type="button" aria-label="배너 닫기" className="quick-consult-close" onClick={dismiss}>
+          닫기
+        </button>
+      </div>
+    </div>
+  );
+}

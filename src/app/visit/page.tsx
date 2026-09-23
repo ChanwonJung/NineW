@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import ConsultForm from "@/components/ConsultForm";
+import NaverMapEmbed from "@/components/NaverMapEmbed";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -54,14 +55,17 @@ export default function VisitPage() {
               </p>
             </div>
 
-            <a
-              href={siteConfig.naverMapUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block rounded-full border border-ink/15 px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-ink/5"
-            >
-              네이버 지도에서 위치 보기 →
-            </a>
+            <div className="space-y-4">
+              <NaverMapEmbed address={siteConfig.address.fullAddress} />
+              <a
+                href={siteConfig.naverMapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-full border border-ink/15 px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-ink/5"
+              >
+                네이버 지도 앱에서 크게 보기 →
+              </a>
+            </div>
           </div>
 
           <div id="consult-form" className="scroll-mt-24 rounded-2xl border border-line bg-paper-dim p-6 sm:p-8">

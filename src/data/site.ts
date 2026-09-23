@@ -1,4 +1,5 @@
 export const siteConfig = {
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://ninew.co.kr").replace(/\/$/, ""),
   name: "나인더블유",
   nameEn: "NineW",
   tagline: "1997년부터 이어온 유학미술 포트폴리오 수업",

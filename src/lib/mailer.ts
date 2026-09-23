@@ -5,21 +5,21 @@ import type { Inquiry } from "@/lib/consult-db";
 const notifyTo = process.env.CONSULT_NOTIFY_EMAIL || "ninew_studio@naver.com";
 
 function transport() {
-  const user = process.env.GMAIL_USER;
-  const pass = process.env.GMAIL_APP_PASSWORD;
+  const user = process.env.NAVER_USER;
+  const pass = process.env.NAVER_APP_PASSWORD;
   if (!user || !pass) return undefined;
-  return nodemailer.createTransport({ service: "gmail", auth: { user, pass } });
+  return nodemailer.createTransport({ host: "smtp.naver.com", port: 587, secure: false, auth: { user, pass } });
 }
 
 export async function sendConsultationEmail(inquiry: Omit<Inquiry, "seen">) {
   const mailer = transport();
   if (!mailer) {
-    console.warn("GMAIL_USER/GMAIL_APP_PASSWORD not set — skipping consultation email");
+    console.warn("NAVER_USER/NAVER_APP_PASSWORD not set — skipping consultation email");
     return;
   }
   try {
     await mailer.sendMail({
-      from: `나인더블유 상담 신청 <${process.env.GMAIL_USER}>`,
+      from: `나인더블유 상담 신청 <${process.env.NAVER_USER}>`,
       to: notifyTo,
       replyTo: inquiry.phone,
       subject: `[나인더블유] 상담 신청 - ${inquiry.name}`,

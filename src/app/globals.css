@@ -183,6 +183,7 @@ h2 { word-break:keep-all; }
 .school-other {padding-bottom:65px;display:flex;justify-content:space-between;gap:20px}
 .school-result-notice {border-left:2px solid var(--color-accent);padding-left:20px;font-size:13px;line-height:1.9;color:var(--color-muted)}
 .school-result-notice a {color:var(--color-accent);text-decoration:underline;text-underline-offset:4px}
+.visit-map {position:relative;width:100%;aspect-ratio:16/10;background:var(--color-paper-dim);border:1px solid var(--color-line)}
 @media(max-width:900px) {
 .school-detail-layout {grid-template-columns:1fr;gap:30px}
 .school-detail-nav {position:static;flex-direction:row;flex-wrap:wrap;gap:10px 22px;border-bottom:1px solid var(--color-line);padding-bottom:20px}
@@ -277,6 +278,37 @@ header nav.hidden {gap:25px}
 .admin-inquiry h2 {font-size:22px}
 .admin-inquiry p {white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0;line-height:1.8}
 .admin-inquiry time {font-size:12px;color:var(--color-muted)}
+.quick-consult-bar {position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--color-accent);color:#fff;border-top:1px solid var(--color-accent-dark)}
+.quick-consult-inner {position:relative;max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:24px;padding:14px 20px}
+.quick-consult-form {flex:1;display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;min-width:0}
+.quick-consult-label {display:flex;flex-direction:column;gap:4px;white-space:nowrap}
+.quick-consult-label .eyebrow {color:#c3ccf4}
+.quick-consult-title {font-size:14px;font-weight:500;letter-spacing:-.02em}
+.quick-consult-fields {display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
+.quick-consult-form input[type="text"],.quick-consult-form input[type="tel"] {border:0;border-bottom:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;padding:4px 2px;font-size:13px;width:96px;min-width:0}
+.quick-consult-form input::placeholder {color:rgba(255,255,255,.7)}
+.quick-consult-form input:focus-visible {outline:none;border-color:#fff}
+.quick-consult-consent {display:flex;align-items:center;gap:7px;font-size:11px;color:#e0e5ff;white-space:nowrap}
+.quick-consult-consent a {color:#fff;text-decoration:underline;text-underline-offset:3px}
+.quick-consult-submit {flex-shrink:0;display:inline-flex;align-items:center;gap:10px;background:var(--color-paper);color:var(--color-ink);font-size:13px;font-weight:500;padding:10px 18px;white-space:nowrap;cursor:pointer;margin-left:auto}
+.quick-consult-submit:disabled {opacity:.6;cursor:default}
+.quick-consult-error {font-size:11px;color:#ffe4e4}
+.quick-consult-done {font-size:13px;padding:4px 0}
+.quick-consult-close {flex-shrink:0;font-size:12px;color:#e0e5ff;text-decoration:underline;text-underline-offset:3px;padding:4px 0;cursor:pointer}
+@media(max-width:900px) {
+ .quick-consult-inner {gap:14px}
+ .quick-consult-form {gap:8px 16px}
+}
+@media(max-width:640px) {
+ .quick-consult-inner {padding:12px 56px 12px 16px;flex-wrap:wrap;gap:10px}
+ .quick-consult-form {gap:8px;width:100%}
+ .quick-consult-label {width:100%;flex-direction:row;align-items:baseline;gap:10px}
+ .quick-consult-fields {width:100%;gap:8px 14px}
+ .quick-consult-form input[type="text"],.quick-consult-form input[type="tel"] {flex:1 1 100px;width:auto}
+ .quick-consult-submit {margin-left:0;width:100%;justify-content:center}
+ .quick-consult-close {position:absolute;top:10px;right:14px}
+}
+@media(max-width:640px) {.quick-consult-bar {padding-bottom:2px}}
 @media(max-width:1023px) {
  .philosophy-grid {gap:6%}
  .school-home-grid {gap:28px 18px}
@@ -359,3 +391,21 @@ header nav.hidden {gap:38px}
  .about-philosophy {padding:40px 0}
 }
 @media(prefers-reduced-motion:reduce) {.enter-view {animation:none!important}}
+
+/* Home hero: stacked and centered — headline above a larger, centered artwork slideshow. */
+.home-intro .intro-grid {display:flex;flex-direction:column;align-items:center;gap:44px}
+.home-intro .intro-copy {max-width:640px;margin:0 auto;padding:0;text-align:center}
+.home-intro .intro-copy h1 {font-size:clamp(40px,5.2vw,76px);margin-top:22px}
+.home-intro .intro-description {font-size:19px;margin-top:24px}
+.home-intro .hero-slideshow {width:100%;max-width:960px;margin:0 auto}
+.home-intro .intro-art-image {aspect-ratio:16/11}
+@media(max-width:1023px) {
+ .home-intro .intro-copy h1 {font-size:clamp(34px,6vw,56px)}
+}
+@media(max-width:767px) {
+ .home-intro .intro-grid {gap:28px}
+ .home-intro .intro-copy {max-width:100%}
+ .home-intro .intro-copy h1 {font-size:clamp(30px,8vw,44px)}
+ .home-intro .intro-description {font-size:16px}
+ .home-intro .intro-art-image {aspect-ratio:1.15}
+}
