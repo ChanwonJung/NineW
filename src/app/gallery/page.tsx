@@ -7,7 +7,7 @@ import { galleryGroups } from "@/data/images";
 
 export const metadata: Metadata = {
   title: "학생 작품",
-  description: "나인더블유 학생들의 작품을 소개하는 갤러리입니다.",
+  description: "NINE·W 학생들의 작품을 소개하는 갤러리입니다.",
 };
 
 export default function GalleryPage() {
@@ -16,7 +16,7 @@ export default function GalleryPage() {
       <PageHero
         eyebrow="학생 작품"
         title="학생 작품 갤러리"
-        description="공개 동의를 확인한 작업만 소개합니다. 특정 학생을 알아볼 수 있는 이름이나 정보는 넣지 않습니다."
+        description="공개 동의를 확인한 작품만 소개합니다. 특정 학생을 알아볼 수 있는 이름이나 정보는 넣지 않습니다."
       />
 
       <section className="py-14 sm:py-20">
@@ -48,7 +48,7 @@ export default function GalleryPage() {
 
           <div className="rounded-2xl border border-dashed border-line bg-paper-dim p-8 text-center">
             <p className="text-sm leading-relaxed text-ink/80">
-              더 많은 작업은 학생과 보호자의 게시 동의를 확인하는 대로 이어서 소개해
+              더 많은 작품은 학생과 보호자의 게시 동의를 확인하는 대로 이어서 소개해
               드리겠습니다.
             </p>
           </div>

@@ -8,7 +8,7 @@ import { eastCoastSchools, midwestSchools, westCoastSchools, otherRegionsNote } 
 
 export const metadata: Metadata = {
   title: "합격 실적",
-  description: "나인더블유 학생들이 합격한 사례가 있는 학교를 소개합니다.",
+  description: "NINE·W 학생들이 합격한 사례가 있는 학교를 소개합니다.",
 };
 
 function SchoolGroup({ title, schools }: { title: string; schools: string[] }) {

@@ -43,5 +43,5 @@ export default function NaverMapEmbed({ address }: { address: string }) {
   }, [address]);
 
   if (!CLIENT_ID) return null;
-  return <div ref={mapRef} className="visit-map" aria-label="나인더블유 위치 지도" />;
+  return <div ref={mapRef} className="visit-map" aria-label="NINE·W 위치 지도" />;
 }

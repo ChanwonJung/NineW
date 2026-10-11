@@ -6,7 +6,7 @@ import ConsultCta from "@/components/ConsultCta";
 
 export const metadata: Metadata = {
   title: "학생 후기",
-  description: "나인더블유에서 공부한 학생들의 후기를 소개합니다.",
+  description: "NINE·W에서 공부한 학생들의 후기를 소개합니다.",
 };
 
 export default function ReviewsPage() {

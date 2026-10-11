@@ -6,7 +6,7 @@ import ConsultCta from "@/components/ConsultCta";
 
 export const metadata: Metadata = {
   title: "소식",
-  description: "나인더블유의 소식과 이야기를 전합니다.",
+  description: "NINE·W의 소식과 이야기를 전합니다.",
 };
 
 export default function BlogPage() {
@@ -14,7 +14,7 @@ export default function BlogPage() {
     <>
       <PageHero
         eyebrow="소식"
-        title="나인더블유 소식"
+        title="NINE·W 소식"
         description="수업 이야기와 유학미술 정보를 준비하고 있습니다."
       />
       <section className="py-14 sm:py-20">

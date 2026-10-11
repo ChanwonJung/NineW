@@ -31,7 +31,7 @@ export default function HeroSlideshow() {
       onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
       onKeyDown={event => {
         if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
-          event.preventDefault(); setPaused(true); move(event.key === "ArrowRight" ? 1 : -1);
+          event.preventDefault(); move(event.key === "ArrowRight" ? 1 : -1);
         }
       }}>
       <div className="intro-art-image slideshow-viewport"
@@ -43,7 +43,7 @@ export default function HeroSlideshow() {
           if (!start) return;
           const dx = event.changedTouches[0].clientX - start.x;
           const dy = event.changedTouches[0].clientY - start.y;
-          if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) { setPaused(true); move(dx < 0 ? 1 : -1); }
+          if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? 1 : -1);
         }}>
         {slides.map((slide, index) => {
           const current = index === frame.index;
@@ -55,14 +55,13 @@ export default function HeroSlideshow() {
       </div>
       <div className="slideshow-caption" aria-live={paused ? "polite" : "off"} aria-atomic="true"><span>{slides[frame.index].caption}</span><span>{String(frame.index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}</span></div>
       <div className="slideshow-controls">
-        <div className="slideshow-dots" aria-label="사진 선택">{slides.map((slide, index) => <button key={slide.src} type="button" aria-label={`${index + 1}번 사진: ${slide.caption}`} aria-current={index === frame.index ? "true" : undefined} onFocus={() => setPaused(true)} onClick={() => {
-          setPaused(true);
+        <div className="slideshow-dots" aria-label="사진 선택">{slides.map((slide, index) => <button key={slide.src} type="button" aria-label={`${index + 1}번 사진: ${slide.caption}`} aria-current={index === frame.index ? "true" : undefined} onClick={() => {
           if (index !== frame.index) setFrame(current => ({ index, previous: current.index, direction: 1, sequence: current.sequence + 1 }));
         }}><span /></button>)}</div>
         <div className="slideshow-buttons">
-          <button type="button" aria-label="이전 사진" onFocus={() => setPaused(true)} onClick={() => { setPaused(true); move(-1); }}>←</button>
-          <button type="button" aria-label={paused ? "자동 재생" : "자동 재생 일시 정지"} onClick={() => setPaused(current => !current)}>{paused ? "재생" : "정지"}</button>
-          <button type="button" aria-label="다음 사진" onFocus={() => setPaused(true)} onClick={() => { setPaused(true); move(1); }}>→</button>
+          <button type="button" aria-label="이전 사진" onClick={() => move(-1)}>←</button>
+          <button type="button" aria-label={paused ? "자동 재생" : "자동 재생 일시 정지"} onClick={() => setPaused(current => !current)}>{paused ? <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M1 0.5v11l8.5-5.5z"/></svg> : <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><path d="M1 0.5h2.6v11H1zM6.4 0.5H9v11H6.4z"/></svg>}</button>
+          <button type="button" aria-label="다음 사진" onClick={() => move(1)}>→</button>
         </div>
       </div>
     </section>

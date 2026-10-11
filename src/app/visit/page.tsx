@@ -7,7 +7,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "오시는 길 · 상담 신청",
-  description: "나인더블유 오시는 길과 상담 신청 방법을 안내합니다.",
+  description: "NINE·W 오시는 길과 상담 신청 방법을 안내합니다.",
 };
 
 export default function VisitPage() {
@@ -15,7 +15,7 @@ export default function VisitPage() {
     <>
       <PageHero
         eyebrow="오시는 길 · 상담 신청"
-        title="나인더블유로 오시는 길"
+        title="NINE·W로 오시는 길"
         description="매봉역 3번 출구, 강남에 있습니다."
       />
 

@@ -19,10 +19,10 @@ export async function sendConsultationEmail(inquiry: Omit<Inquiry, "seen">) {
   }
   try {
     await mailer.sendMail({
-      from: `나인더블유 상담 신청 <${process.env.NAVER_USER}>`,
+      from: `NINE·W 상담 신청 <${process.env.NAVER_USER}>`,
       to: notifyTo,
       replyTo: inquiry.phone,
-      subject: `[나인더블유] 상담 신청 - ${inquiry.name}`,
+      subject: `[NINE·W] 상담 신청 - ${inquiry.name}`,
       text: `이름: ${inquiry.name}\n연락처: ${inquiry.phone}\n관심 수업: ${inquiry.program}\n내용: ${inquiry.message || "(작성 안 함)"}\n\n접수 시각: ${new Date(inquiry.created_at).toLocaleString("ko-KR")}`,
     });
   } catch (error) {

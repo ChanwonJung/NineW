@@ -6,7 +6,7 @@ import { faqItems } from "@/data/faq";
 
 export const metadata: Metadata = {
   title: "FAQ",
-  description: "나인더블유에 대해 자주 묻는 질문을 모았습니다.",
+  description: "NINE·W에 대해 자주 묻는 질문을 모았습니다.",
 };
 
 export default function FaqPage() {

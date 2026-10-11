@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "개인정보 처리방침",
-  description: "나인더블유가 상담 신청 시 수집하는 개인정보 항목과 처리 방침을 안내합니다.",
+  description: "NINE·W가 상담 신청 시 수집하는 개인정보 항목과 처리 방침을 안내합니다.",
 };
 
 const sections = [

@@ -1,11 +1,11 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/data/site";
 
-export const alt = "나인더블유 · 유학미술 포트폴리오";
+export const alt = "NINE·W · 유학미술 포트폴리오";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const TITLE = "나인더블유";
+const TITLE = "NINE·W";
 const CAPTION = "유학미술 포트폴리오 스튜디오";
 
 async function loadNotoSansKr(text: string) {

@@ -38,7 +38,7 @@ export const heroSlides = [
   },
   {
     "src": "/images/real/selected-work-37.webp",
-    "alt": "동물과 식물의 형태를 재구성한 색채 작업",
+    "alt": "동물과 식물의 형태를 재구성한 색채 작품",
     "caption": "학생 작품 — 상상의 풍경"
   },
   {
@@ -50,7 +50,7 @@ export const heroSlides = [
 export const programImages: Record<string,RealImage> = {
   "portfolio": {
     "src": "/images/real/selected-class-11.webp",
-    "alt": "작업실에서 회화 작품을 제작하는 수업 장면"
+    "alt": "작업실에서 회화 작품을 그리는 수업 장면"
   },
   "intensive": {
     "src": "/images/real/selected-class-14.webp",
@@ -78,7 +78,7 @@ export const aboutImages = {
 export const galleryGroups: {title:string;description:string;images:RealImage[]}[] = [
   {
     "title": "회화 · 색채와 공간",
-    "description": "관찰한 공간과 대상을 각자의 색채와 구성으로 풀어낸 작업입니다.",
+    "description": "관찰한 공간과 대상을 각자의 색채와 구성으로 풀어낸 작품입니다.",
     "images": [
       {
         "src": "/images/real/selected-work-1.webp",
@@ -100,11 +100,11 @@ export const galleryGroups: {title:string;description:string;images:RealImage[]}
   },
   {
     "title": "관찰과 재현",
-    "description": "사물과 도시 공간을 자세히 바라보고 선으로 기록한 작업입니다.",
+    "description": "사물과 도시 공간을 자세히 바라보고 선으로 기록한 작품입니다.",
     "images": [
       {
         "src": "/images/real/selected-work-17.webp",
-        "alt": "작업 공간 속 사물을 관찰한 드로잉"
+        "alt": "작업실 속 사물을 관찰한 드로잉"
       },
       {
         "src": "/images/real/selected-work-18.webp",
@@ -114,7 +114,7 @@ export const galleryGroups: {title:string;description:string;images:RealImage[]}
   },
   {
     "title": "입체 · 설치",
-    "description": "형태와 재료, 빛을 실험한 입체·설치 작업입니다.",
+    "description": "형태와 재료, 빛을 실험한 입체·설치 작품입니다.",
     "images": [
       {
         "src": "/images/real/selected-work-45.webp",
