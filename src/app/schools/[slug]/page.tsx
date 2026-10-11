@@ -4,6 +4,7 @@ import SchoolPhoto, { SchoolPhotoCredit } from "@/components/SchoolPhoto";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
+import PageHero from "@/components/PageHero";
 import { schools, getSchool, schoolsCheckedAt, schoolAcademics } from "@/data/schools";
 import { siteConfig } from "@/data/site";
 type Props = { params: Promise<{slug:string}> };
@@ -11,7 +12,8 @@ export function generateStaticParams() { return schools.map(s=>({slug:s.slug}));
 export async function generateMetadata({params}:Props):Promise<Metadata> { const {slug}=await params; const s=getSchool(slug); return {title:s ? `${s.name} 지원 안내` : "학교를 찾을 수 없습니다",description:s?.intro}; }
 export default async function SchoolPage({params}:Props) {
  const {slug}=await params; const school=getSchool(slug); if(!school) notFound(); const education = schoolAcademics[slug];
- return <><section className="school-detail-hero"><Container><Link className="school-back" href="/schools">← 학교별 지원 안내</Link><div className="school-detail-heading"><SchoolIdentity slug={school.slug} name={school.name}/><div><p className="eyebrow">{school.location}</p><h1>{school.name}</h1></div></div><p className="school-fullname">{school.fullName}</p><p className="school-detail-korean">{school.nameKo}</p><p className="school-detail-intro">{school.intro}</p><dl className="school-facts"><div><dt>안내 대상</dt><dd>{school.scope}</dd></div><div><dt>적용 기준</dt><dd>{school.cycle}</dd></div><div><dt>최종 확인</dt><dd><time dateTime={schoolsCheckedAt}>{schoolsCheckedAt}</time></dd></div></dl></Container></section>
+ return <><PageHero eyebrow={school.location} title={school.name} description={`${school.fullName} · ${school.nameKo}`}/>
+ <section className="pg-section pg-section-dim"><Container><Link className="school-back" href="/schools">← 학교별 지원 안내</Link><div className="school-detail-heading"><SchoolIdentity slug={school.slug} name={school.name}/><p className="school-detail-intro">{school.intro}</p></div><dl className="school-facts"><div><dt>안내 대상</dt><dd>{school.scope}</dd></div><div><dt>적용 기준</dt><dd>{school.cycle}</dd></div><div><dt>최종 확인</dt><dd><time dateTime={schoolsCheckedAt}>{schoolsCheckedAt}</time></dd></div></dl></Container></section>
  <Container className="school-detail-layout"><aside className="school-detail-nav"><p>지원 준비 가이드</p><a href="#overview">학교와 교육</a><a href="#portfolio">01 포트폴리오</a><a href="#schedule">02 지원 일정</a><a href="#preparation">03 준비 제안</a><a href="#sources">04 공식 자료</a></aside><div className="school-detail-content">
  <section id="overview"><SchoolPhoto slug={school.slug}/><SchoolPhotoCredit slug={school.slug}/><p className="eyebrow">ABOUT THE SCHOOL</p><h2>어떻게 배우는 곳일까.</h2><p className="school-education-text">{education.text}</p><a className="school-source-inline" href={education.url} target="_blank" rel="noopener noreferrer">학교 공식 교육과정 ↗</a></section>
  <section id="portfolio"><p className="eyebrow">01 — OFFICIAL REQUIREMENTS</p><h2>포트폴리오, 무엇을 준비할까.</h2><p className="school-requirement-highlight">{school.highlight}</p><ul className="school-requirements">{school.requirements.map(text=><li key={text}>{text}</li>)}</ul><p className="school-scope-note">{school.scopeNote}</p><a className="school-source-inline" href={school.sources[0][1]} target="_blank" rel="noopener noreferrer">근거: {school.sources[0][0]} ↗</a></section>

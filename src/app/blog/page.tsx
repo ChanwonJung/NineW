@@ -17,7 +17,7 @@ export default function BlogPage() {
         title="NINE·W 소식"
         description="수업 이야기와 유학미술 정보를 준비하고 있습니다."
       />
-      <section className="py-14 sm:py-20">
+      <section className="pg-section">
         <Container>
           <ComingSoon message="아직 홈페이지에 올린 글이 없습니다. 지금은 인스타그램에서 소식을 전하고 있어요." />
         </Container>

@@ -5,10 +5,36 @@ import BrandLogo from "@/components/BrandLogo";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navLinks, siteConfig } from "@/data/site";
+import { programs } from "@/data/programs";
+
+// 메가 메뉴: 메뉴 영역에 마우스를 올리면 모든 메뉴의 하위 페이지가 한 번에 펼쳐진다.
+const navChildren: Record<string, { href: string; label: string; sub?: string }[]> = {
+  "/about": [
+    { href: "/about", label: "학원 소개" },
+    { href: "/reviews", label: "학생 후기" },
+    { href: "/blog", label: "소식" },
+  ],
+  "/programs": [{ href: "/programs", label: "수업 안내" }, ...programs.map(p => ({ href: `/programs/${p.slug}`, label: p.name }))],
+  "/schools": [
+    { href: "/schools/risd", label: "RISD" },
+    { href: "/schools/parsons", label: "Parsons" },
+    { href: "/schools/pratt", label: "Pratt" },
+    { href: "/schools/saic", label: "SAIC" },
+    { href: "/schools/mica", label: "MICA" },
+    { href: "/schools/fit", label: "FIT" },
+  ],
+  "/results": [{ href: "/results", label: "합격 실적" }],
+  "/gallery": [{ href: "/gallery", label: "학생 작품" }],
+  "/visit": [
+    { href: "/visit", label: "오시는 길" },
+    { href: "/faq", label: "자주 묻는 질문" },
+  ],
+};
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [menuClosed, setMenuClosed] = useState(false);
 
   const primaryLinks = navLinks.filter(link => ["/about","/programs","/gallery","/results","/schools","/visit"].includes(link.href));
   return (
@@ -22,31 +48,37 @@ export default function Header() {
           <BrandLogo/>
         </Link>
 
-        <nav className="hidden items-center gap-4 lg:flex">
+        <nav className={menuClosed ? "header-nav hidden items-center lg:flex is-closed" : "header-nav hidden items-center lg:flex"} aria-label="주요 메뉴" onMouseLeave={() => setMenuClosed(false)}>
           {primaryLinks.map((link) => {
             const active = (pathname === link.href || pathname.startsWith(link.href + "/"));
+            const children = navChildren[link.href];
             return (
-              <Link
-                aria-current={(pathname === link.href || pathname.startsWith(link.href + "/")) ? "page" : undefined} key={link.href}
-                href={link.href}
-                className={`header-menu-link transition-colors hover:text-accent ${
-                  active ? "font-medium text-accent" : "text-ink/80"
-                }`}
-              >
-                {link.label}
-              </Link>
+              <div key={link.href} className="nav-item">
+                <Link
+                  aria-current={active ? "page" : undefined}
+                  href={link.href}
+                  className="header-menu-link text-ink/80 transition-colors hover:text-accent"
+                >
+                  {link.label}
+                </Link>
+                {children && (
+                  <div className="nav-dropdown">
+                    <ul>
+                      {children.map(child => (
+                        <li key={child.href}>
+                          <Link href={child.href} aria-current={pathname === child.href ? "page" : undefined} onClick={() => setMenuClosed(true)}>
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             );
           })}
+          <div className="mega-bg" aria-hidden="true" />
         </nav>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href="/visit#consult-form"
-            className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-paper transition-colors hover:bg-accent-dark"
-          >
-            상담 신청
-          </a>
-        </div>
 
         <button
           type="button"

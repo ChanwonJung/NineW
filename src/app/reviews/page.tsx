@@ -17,7 +17,7 @@ export default function ReviewsPage() {
         title="학생 후기"
         description="본인 또는 보호자의 게시 동의를 확인한 후기부터 차례로 소개할 예정입니다."
       />
-      <section className="py-14 sm:py-20">
+      <section className="pg-section">
         <Container>
           <ComingSoon message="아직 게시 동의를 확인한 후기가 준비되지 않았습니다. 동의된 후기가 확인되는 대로 이 자리에 소개해 드리겠습니다." />
         </Container>

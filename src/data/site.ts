@@ -9,6 +9,9 @@ export const siteConfig = {
   phoneHref: "tel:0507-1413-7748",
   instagramHandle: "nine.w_studio",
   instagramUrl: "https://www.instagram.com/nine.w_studio/",
+  // 채널이 열리면 아래 주소를 채워 넣으세요. 비어 있으면 우측 퀵메뉴에 표시되지 않습니다.
+  kakaoUrl: "",
+  blogUrl: "https://blog.naver.com/ninew_studio",
   naverMapUrl:
     "https://map.naver.com/p/search/%EB%82%98%EC%9D%B8%EB%8D%94%EB%B8%94%EC%9C%A0/place/1370088257?c=15.00,0,0,0,dh&placePath=%2Fhome%3Fbk_query%3D%EB%82%98%EC%9D%B8%EB%8D%94%EB%B8%94%EC%9C%A0%26entry%3Dbmp%26from%3Dmap%26fromPanelNum%3D2%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EB%82%98%EC%9D%B8%EB%8D%94%EB%B8%94%EC%9C%A0",
   directorPortfolioUrl: "https://seokheejung.wixsite.com/seok",

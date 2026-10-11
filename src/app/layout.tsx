@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollMotion from "@/components/ScrollMotion";
 import QuickConsultBar from "@/components/QuickConsultBar";
+import SideQuickMenu from "@/components/SideQuickMenu";
 import StructuredData from "@/components/StructuredData";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { siteConfig } from "@/data/site";
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <QuickConsultBar />
+        <SideQuickMenu />
         <Suspense fallback={null}>
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         </Suspense>
