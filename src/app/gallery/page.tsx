@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
-import ConsultCta from "@/components/ConsultCta";
 import { galleryGroups } from "@/data/images";
 
 export const metadata: Metadata = {
@@ -44,7 +43,6 @@ export default function GalleryPage() {
         </Container>
       </section>
 
-      <ConsultCta />
     </>
   );
 }

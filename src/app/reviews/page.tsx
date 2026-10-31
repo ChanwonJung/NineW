@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import ComingSoon from "@/components/ComingSoon";
-import ConsultCta from "@/components/ConsultCta";
 
 export const metadata: Metadata = {
   title: "학생 후기",
@@ -22,7 +21,6 @@ export default function ReviewsPage() {
           <ComingSoon message="아직 게시 동의를 확인한 후기가 준비되지 않았습니다. 동의된 후기가 확인되는 대로 이 자리에 소개해 드리겠습니다." />
         </Container>
       </section>
-      <ConsultCta />
     </>
   );
 }

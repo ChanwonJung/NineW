@@ -60,12 +60,6 @@ h2 { word-break:keep-all; }
 .results-description { font-size:13px; color:var(--color-muted); margin-bottom:25px; }
 .school-list { display:flex; flex-wrap:wrap; gap:0 32px; }
 .school-list span { padding:15px 0; font-family:var(--font-noto-sans-kr),sans-serif; font-size:20px; font-weight:500; letter-spacing:-.025em; }
-.consult-section { padding:65px 0; background:var(--color-accent); color:white; }
-.consult-inner { display:flex; justify-content:space-between; gap:40px; align-items:center; }
-.consult-section h2 { margin-top:18px; font-size:34px; font-weight:500; letter-spacing:-.05em; }
-.consult-description { max-width:480px; margin-top:17px; font-size:13px; line-height:1.9; color:#e0e5ff; }
-.consult-actions { display:flex; flex-direction:column; min-width:230px; gap:15px; font-size:12px; }
-.consult-primary { padding:18px 20px; display:flex; justify-content:space-between; background:var(--color-paper); color:var(--color-ink); font-size:14px; }
 .site-wordmark { font-family:Arial,sans-serif; font-weight:800; font-size:31px; letter-spacing:-.085em; }
 /* Shared surfaces follow the same quiet, square-edged visual language. */
 .rounded-2xl,.rounded-xl,.rounded-full { border-radius:0; }
@@ -264,10 +258,6 @@ header nav.hidden {gap:25px}
 .photo-credit a {text-decoration:underline;text-underline-offset:3px}
 .school-detail-heading .school-logo {width:90px;flex-basis:90px;height:85px}
 .school-detail-content .school-campus-photo {aspect-ratio:16/9}
-.consult-section {background:#202521}
-.consult-section h2 {font-size:clamp(30px,3.3vw,44px)}
-.consult-description {color:#cbd1cb;font-size:15px}
-.consult-section .eyebrow {color:#cbd1cb}
 .admin-shell {max-width:1000px;margin:auto;padding:65px 24px;min-height:65vh}
 .admin-shell h1 {font-size:36px;margin-bottom:15px;letter-spacing:-.045em}
 .admin-shell input {border:1px solid var(--color-line);padding:12px;max-width:100%}
@@ -509,7 +499,6 @@ header nav.hidden {gap:38px}
 .eyebrow {font-size:13px}
 .editorial-link {font-size:16px}
 .intro-description {font-size:20px}
-.consult-description {font-size:18px}
 @media(max-width:1023px) {.program-home-grid {grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:767px) {
  .home-programs {padding:52px 0}
@@ -808,8 +797,3 @@ header nav.hidden {gap:38px}
 .school-home-entry {border-radius:14px;overflow:hidden;background:#fff;border:1px solid var(--color-line);box-shadow:0 10px 28px rgba(30,40,90,.06)}
 .school-card-label {padding:18px 20px;border-bottom:0}
 .school-home-entry h3 {font-weight:700}
-.consult-section {background:#0f1a3d}
-.consult-section h2 {font-weight:700;letter-spacing:-.055em}
-.consult-description {font-size:17px;color:rgba(255,255,255,.8)}
-.consult-section .eyebrow {color:#f6b93b;font-size:13px}
-.consult-primary {background:#f6b93b;color:#2b2200;font-weight:700;font-size:16px;border-radius:999px}

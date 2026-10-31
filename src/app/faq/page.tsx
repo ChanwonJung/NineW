@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
-import ConsultCta from "@/components/ConsultCta";
 import { faqItems } from "@/data/faq";
 
 export const metadata: Metadata = {
@@ -31,7 +30,6 @@ export default function FaqPage() {
           </p>
         </Container>
       </section>
-      <ConsultCta />
     </>
   );
 }

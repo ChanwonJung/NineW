@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
-import ConsultCta from "@/components/ConsultCta";
 import ProgramTabs from "@/components/ProgramTabs";
 import { portfolioCriteria } from "@/data/programs";
 import { siteConfig } from "@/data/site";
@@ -52,7 +51,6 @@ export default function ProgramsPage() {
         </Container>
       </section>
 
-      <ConsultCta />
     </>
   );
 }

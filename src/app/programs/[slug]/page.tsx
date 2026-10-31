@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
-import ConsultCta from "@/components/ConsultCta";
 import ProgramTabs from "@/components/ProgramTabs";
 import { getProgram, programs } from "@/data/programs";
 import { programImages } from "@/data/images";
@@ -80,7 +79,6 @@ export default async function ProgramPage({ params }: Props) {
         </Container>
       </section>
 
-      <ConsultCta />
     </>
   );
 }

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { schools as schoolGuides } from "@/data/schools";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
-import ConsultCta from "@/components/ConsultCta";
 import { eastCoastSchools, midwestSchools, westCoastSchools, otherRegionsNote } from "@/data/results";
 
 export const metadata: Metadata = {
@@ -69,7 +68,6 @@ export default function ResultsPage() {
         </Container>
       </section>
 
-      <ConsultCta />
     </>
   );
 }

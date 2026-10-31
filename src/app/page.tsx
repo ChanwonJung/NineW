@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Container from "@/components/Container";
-import ConsultCta from "@/components/ConsultCta";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import SchoolIdentity from "@/components/SchoolIdentity";
 import SchoolPhoto from "@/components/SchoolPhoto";
@@ -16,5 +15,5 @@ export default function Home() {
  <section className="home-points"><Container><div className="points-layout"><div className="points-heading"><p className="eyebrow">WHY NINE·W</p><h2>한 명에게 집중하는<br/>세 가지 약속</h2></div><div className="point-grid"><div className="point-card" style={{"--i":0} as React.CSSProperties}><span className="point-no">01</span><span className="point-kw">1:1 수업</span><h3>한 명의 속도에 맞춘<br/>나만의 맞춤 수업</h3><p>관심사에서 출발하는 맞춤 지도</p></div><div className="point-card" style={{"--i":1} as React.CSSProperties}><span className="point-no">02</span><span className="point-kw">소수정예</span><h3>소수의 학생과 함께<br/>끝까지 세심하게</h3><p>모든 작품을 가까이에서 확인</p></div><div className="point-card" style={{"--i":2} as React.CSSProperties}><span className="point-no">03</span><span className="point-kw">원장 직접 지도</span><h3>상담부터 피드백까지<br/>원장님이 직접</h3><p>처음부터 끝까지 일관된 지도</p></div></div></div></Container></section>
  <section className="home-programs"><Container><div className="section-heading"><div><p className="eyebrow">PROGRAMS · 프로그램</p><h2>목표에 맞춘 네 가지 수업</h2></div><Link className="editorial-link" href="/programs">수업 안내 보기 <span aria-hidden="true">↗</span></Link></div><div className="program-home-grid">{programs.map((p,i)=><Link key={p.slug} href={`/programs/${p.slug}`} className="program-home-card" style={{"--i":i} as React.CSSProperties}><Image src={programImages[p.slug].src} alt={programImages[p.slug].alt} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover"/><div className="program-home-label"><span>{String(i+1).padStart(2,"0")}</span><h3>{p.name}</h3><p>{p.summary.replace(/입니다\.?$/,"")}</p></div></Link>)}</div></Container></section>
  <section id="schools" className="home-schools"><Container><div className="section-heading"><div><p className="eyebrow">SCHOOLS · 학교 안내</p><h2>다음 장면이 펼쳐질 곳</h2></div><Link className="editorial-link" href="/schools">학교별 지원 안내 <span aria-hidden="true">↗</span></Link></div><div className="school-home-grid">{schools.map(s=><Link key={s.slug} href={`/schools/${s.slug}`} className="school-home-entry"><SchoolPhoto slug={s.slug}/><div className="school-card-label"><SchoolIdentity slug={s.slug} name={s.name}/><div><h3>{s.name}</h3><p>{s.nameKo}</p></div><span className="school-card-arrow" aria-hidden="true">↗</span></div></Link>)}</div><Link className="photo-credit-link" href="/schools#photo-credits">학교 사진 출처</Link></Container></section>
- <ConsultCta/></>;
+</>;
 }

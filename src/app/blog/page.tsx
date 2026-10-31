@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import ComingSoon from "@/components/ComingSoon";
-import ConsultCta from "@/components/ConsultCta";
 
 export const metadata: Metadata = {
   title: "소식",
@@ -22,7 +21,6 @@ export default function BlogPage() {
           <ComingSoon message="아직 홈페이지에 올린 글이 없습니다. 지금은 인스타그램에서 소식을 전하고 있어요." />
         </Container>
       </section>
-      <ConsultCta />
     </>
   );
 }

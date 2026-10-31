@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
-import ConsultCta from "@/components/ConsultCta";
 import { siteConfig } from "@/data/site";
 import { aboutImages } from "@/data/images";
 
@@ -49,5 +48,4 @@ export default function AboutPage(){return <>
  <Link className="editorial-link" href={siteConfig.directorPortfolioUrl} target="_blank" rel="noopener noreferrer">정석희 작가의 작품 활동 더 보기 <span aria-hidden="true">↗</span></Link>
  </div></div>
  </Container></section>
- <ConsultCta/>
  </>;}
