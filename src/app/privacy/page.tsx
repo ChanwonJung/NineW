@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "개인정보 처리방침",
-  description: "나인더블유가 상담 신청 시 수집하는 개인정보 항목과 처리 방침을 안내합니다.",
+  description: "NINE·W가 상담 신청 시 수집하는 개인정보 항목과 처리 방침을 안내합니다.",
 };
 
 const sections = [
@@ -38,19 +38,17 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <>
-      <PageHero eyebrow="개인정보 처리방침" title="개인정보 처리방침" />
-      <section className="py-14 sm:py-20">
+      <PageHero eyebrow="PRIVACY" title="개인정보 처리방침" description="상담 신청 시 수집하는 개인정보와 처리 방침을 안내합니다." />
+      <section className="pg-section pg-section-dim">
         <Container>
-          <div className="mx-auto max-w-2xl space-y-8">
+          <div className="pg-policy">
             {sections.map((section) => (
-              <div key={section.title}>
-                <h2 className="font-serif text-lg font-semibold text-ink">{section.title}</h2>
-                <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-muted">
-                  {section.body}
-                </p>
+              <div key={section.title} className="pg-card">
+                <h2>{section.title}</h2>
+                <p>{section.body}</p>
               </div>
             ))}
-            <p className="text-sm text-muted">시행일: 2026년 9월 14일</p>
+            <p className="pg-note">시행일: 2026년 9월 14일</p>
           </div>
         </Container>
       </section>

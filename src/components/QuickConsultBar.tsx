@@ -24,6 +24,19 @@ export default function QuickConsultBar() {
     return () => clearTimeout(t);
   }, []);
 
+  // 히어로 슬라이드 등이 하단 상담 바에 가려지지 않도록 바 높이를 CSS 변수로 공유한다.
+  useEffect(() => {
+    const root = document.documentElement;
+    const bar = document.querySelector<HTMLElement>(".quick-consult-bar");
+    // 바를 닫아도 마지막으로 잰 높이를 유지해, 슬라이드 크기가 바뀌지 않게 한다.
+    if (!bar) return;
+    const sync = () => root.style.setProperty("--quick-bar-h", `${bar.offsetHeight}px`);
+    sync();
+    const observer = new ResizeObserver(sync);
+    observer.observe(bar);
+    return () => observer.disconnect();
+  }, [visible, pathname, status]);
+
   if (pathname?.startsWith("/admin") || !visible) return null;
 
   function dismiss() {

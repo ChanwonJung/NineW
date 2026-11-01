@@ -1,6 +1,6 @@
-# 나인더블유 홈페이지
+# NINE·W 홈페이지
 
-유학미술 포트폴리오 학원 나인더블유(NineW)의 공식 홈페이지입니다. Next.js(App Router) + TypeScript + Tailwind CSS로 만들었습니다.
+유학미술 포트폴리오 학원 NINE·W의 공식 홈페이지입니다. Next.js(App Router) + TypeScript + Tailwind CSS로 만들었습니다.
 
 ## 로컬 실행 방법
 

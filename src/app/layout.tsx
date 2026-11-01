@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollMotion from "@/components/ScrollMotion";
 import QuickConsultBar from "@/components/QuickConsultBar";
+import SideQuickMenu from "@/components/SideQuickMenu";
 import StructuredData from "@/components/StructuredData";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { siteConfig } from "@/data/site";
@@ -23,13 +24,13 @@ const notoSerifKr = Noto_Serif_KR({
 });
 
 const description =
-  "정석희 원장님이 직접 지도하는 1대1 소수정예 유학미술학원, 나인더블유입니다. 학생 개개인의 시선으로 포트폴리오를 준비합니다.";
+  "정석희 원장님이 직접 지도하는 1대1 소수정예 유학미술학원, NINE·W입니다. 학생 개개인의 시선으로 포트폴리오를 준비합니다.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "나인더블유 | 유학미술 포트폴리오",
-    template: "%s | 나인더블유",
+    default: "NINE·W | 유학미술 포트폴리오",
+    template: "%s | NINE·W",
   },
   description,
   openGraph: {
@@ -37,12 +38,12 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "나인더블유 | 유학미술 포트폴리오",
+    title: "NINE·W | 유학미술 포트폴리오",
     description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "나인더블유 | 유학미술 포트폴리오",
+    title: "NINE·W | 유학미술 포트폴리오",
     description,
   },
 };
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <QuickConsultBar />
+        <SideQuickMenu />
         <Suspense fallback={null}>
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         </Suspense>
