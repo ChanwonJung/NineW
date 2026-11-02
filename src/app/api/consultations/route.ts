@@ -13,11 +13,17 @@ export async function POST(request:Request){
   if(str("website"))return Response.json({error:"다시 시도해 주세요."},{status:400});
   if(!name||name.length>60||!/^0\d{8,10}$/.test(phone)||message.length>2000||body.consent!==true||(!programs.some(p=>p.name===program)&&program!=="상담 후 결정"))return Response.json({error:"이름, 연락처, 관심 수업과 개인정보 동의를 확인해 주세요."},{status:400});
   const key=createHash("sha256").update(phone).digest("hex");
-  if(!rateLimit("intake",100,60000)||!rateLimit("phone:"+key,3,3600000))return Response.json({error:"신청이 반복되었습니다. 잠시 후 다시 시도하거나 전화로 문의해 주세요."},{status:429});
   const id=randomUUID();
   const created_at=Date.now();
-  database().prepare("INSERT INTO inquiries(id,name,phone,program,message,created_at,consent_version) VALUES(?,?,?,?,?,?,?)").run(id,name,phone,program,message,created_at,"2026-09-14");
-  await sendConsultationEmail({id,name,phone,program,message,created_at});
+  // DB 저장에 실패해도 알림 메일은 보낸다. 둘 다 실패했을 때만 오류로 응답한다.
+  let saved=false;
+  try{
+   if(!rateLimit("intake",100,60000)||!rateLimit("phone:"+key,3,3600000))return Response.json({error:"신청이 반복되었습니다. 잠시 후 다시 시도하거나 전화로 문의해 주세요."},{status:429});
+   database().prepare("INSERT INTO inquiries(id,name,phone,program,message,created_at,consent_version) VALUES(?,?,?,?,?,?,?)").run(id,name,phone,program,message,created_at,"2026-09-14");
+   saved=true;
+  }catch(error){console.error("Failed to save consultation",error);}
+  const mailed=await sendConsultationEmail({id,name,phone,program,message,created_at});
+  if(!saved&&!mailed)return Response.json({error:"접수하지 못했습니다. 잠시 후 다시 시도하거나 전화로 문의해 주세요."},{status:503});
   return Response.json({ok:true,id},{status:201,headers:{"Cache-Control":"no-store"}});
  }catch(error){if(error instanceof SyntaxError||error instanceof Error&&["empty","large","invalid"].includes(error.message))return Response.json({error:"신청 내용을 확인해 주세요."},{status:400});return Response.json({error:"접수하지 못했습니다. 잠시 후 다시 시도하거나 전화로 문의해 주세요."},{status:503});}
 }

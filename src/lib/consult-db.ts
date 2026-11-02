@@ -6,7 +6,8 @@ export type Inquiry = {id:string; name:string;phone:string;program:string;messag
 let db:DatabaseSync|undefined;
 export function database() {
  if(!db) {
-  const file=process.env.CONSULT_DB_PATH || path.join(process.cwd(),"data","consultations.sqlite");
+  // Vercel 서버리스는 /tmp 외에는 쓰기가 불가능하다. /tmp는 인스턴스가 바뀌면 비워지므로 상담 기록의 원본은 알림 메일이다.
+  const file=process.env.CONSULT_DB_PATH || (process.env.VERCEL ? path.join("/tmp","consultations.sqlite") : path.join(process.cwd(),"data","consultations.sqlite"));
   mkdirSync(path.dirname(file),{recursive:true,mode:0o700});
   db=new DatabaseSync(file);
   db.exec(`PRAGMA journal_mode=WAL; PRAGMA busy_timeout=5000; PRAGMA secure_delete=ON;
