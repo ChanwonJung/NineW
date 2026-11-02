@@ -54,7 +54,6 @@ export default function HeroSlideshow({ children }: { children?: React.ReactNode
       <button type="button" className="hero-arrow is-prev" aria-label="이전 사진" onClick={() => move(-1)}><svg width="30" height="56" viewBox="0 0 30 56" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M24 4L5 28l19 24"/></svg></button>
       <button type="button" className="hero-arrow is-next" aria-label="다음 사진" onClick={() => move(1)}><svg width="30" height="56" viewBox="0 0 30 56" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 4l19 24L6 52"/></svg></button>
       <div className="hero-bottom">
-        <div className="slideshow-caption" aria-live="off" aria-atomic="true"><span>{slides[frame.index].caption}</span></div>
         <div className="slideshow-controls">
           <div className="slideshow-dots" aria-label="사진 선택">{slides.map((slide, index) => <button key={slide.src} type="button" aria-label={`${index + 1}번 사진: ${slide.caption}`} aria-current={index === frame.index ? "true" : undefined} onClick={() => {
             if (index !== frame.index) setFrame(current => ({ index, previous: current.index, direction: 1, sequence: current.sequence + 1 }));

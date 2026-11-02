@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko" className={`${notoSansKr.variable} ${notoSerifKr.variable} h-full`}>
-      <body data-deploy-test="2026-11-02" className="flex min-h-full flex-col font-sans antialiased">
+      <body className="flex min-h-full flex-col font-sans antialiased">
         <StructuredData />
         <Header />
         <ScrollMotion/>
