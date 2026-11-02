@@ -439,11 +439,16 @@ header nav.hidden {gap:38px}
 .side-quick-list li+li {border-top:0}
 .side-quick-list a {display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 2px;border-radius:12px;font-size:13px;font-weight:500;letter-spacing:-.02em;color:var(--color-ink);text-align:center;transition:background .2s,color .2s}
 .side-quick-list a:hover {background:var(--color-accent);color:#fff}
+.side-quick-list .is-pending {display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 2px;border-radius:12px;font-size:13px;font-weight:500;letter-spacing:-.02em;color:var(--color-muted);text-align:center;cursor:default}
+.side-quick-list .is-pending small {margin-top:-3px;font-size:10.5px;opacity:.8}
+.side-quick-kakao path {fill:#fff}
+.side-quick-kakao text {fill:var(--color-ink)}
+.side-quick-list .is-pending .side-quick-kakao {color:var(--color-ink)}
 .side-quick-toggle {border-radius:12px 0 0 12px}
 @media(max-width:767px) {
  .side-quick {top:42%}
  .side-quick-list {width:70px;padding:2px}
- .side-quick-list a {padding:7px 1px;font-size:11.5px}
+ .side-quick-list a,.side-quick-list .is-pending {padding:7px 1px;font-size:11.5px}
 }
 @media(prefers-reduced-motion:reduce) { .side-quick,.side-quick-toggle svg {transition:none} }
 
