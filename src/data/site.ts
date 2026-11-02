@@ -10,7 +10,7 @@ export const siteConfig = {
   email: "ninew_studio@naver.com",
   instagramHandle: "nine.w_studio",
   instagramUrl: "https://www.instagram.com/nine.w_studio/",
-  // 채널이 열리면 아래 주소를 채워 넣으세요. 비어 있으면 우측 퀵메뉴에 표시되지 않습니다.
+  // 카카오톡 채널을 만들면 친구추가 주소(예: https://pf.kakao.com/_xxxxx)를 넣으세요. 비어 있으면 우측 퀵메뉴에 '준비 중'으로 표시됩니다.
   kakaoUrl: "",
   blogUrl: "https://blog.naver.com/ninew_studio",
   naverMapUrl:
