@@ -1,50 +1,306 @@
 {
-    "mica":  {
-                 "author":  "Spike55151 (talk) (Uploads)",
-                 "source":  "https://commons.wikimedia.org/wiki/File:Brown_Center.jpg",
-                 "src":  "/images/schools/mica.webp",
-                 "licenseUrl":  null,
-                 "title":  "Brown Center.jpg",
-                 "license":  "Public domain"
-             },
-    "fit":  {
-                "author":  "Beyond My Ken",
-                "source":  "https://commons.wikimedia.org/wiki/File:FIT_27th_Street_campus.jpg",
-                "src":  "/images/schools/fit.webp",
-                "licenseUrl":  "https://creativecommons.org/licenses/by-sa/4.0",
-                "title":  "FIT 27th Street campus.jpg",
-                "license":  "CC BY-SA 4.0"
-            },
-    "saic":  {
-                 "author":  "Alanscottwalker",
-                 "source":  "https://commons.wikimedia.org/wiki/File:School_of_the_Art_Institute_Chicago_Grant_Park.JPG",
-                 "src":  "/images/schools/saic.webp",
-                 "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
-                 "title":  "School of the Art Institute Chicago Grant Park.JPG",
-                 "license":  "CC BY-SA 3.0"
-             },
-    "parsons":  {
-                    "author":  "Ajay Suresh from New York, NY, USA",
-                    "source":  "https://commons.wikimedia.org/wiki/File:The_University_Center_for_the_New_School_(48072770027).jpg",
-                    "src":  "/images/schools/parsons.webp",
-                    "licenseUrl":  "https://creativecommons.org/licenses/by/2.0",
-                    "title":  "The University Center for the New School (48072770027).jpg",
-                    "license":  "CC BY 2.0"
-                },
-    "pratt":  {
-                  "author":  "Jonathan Bowen",
-                  "source":  "https://commons.wikimedia.org/wiki/File:Pratt_Institute_main_building.JPG",
-                  "src":  "/images/schools/pratt.webp",
-                  "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
-                  "title":  "Pratt Institute main building.JPG",
-                  "license":  "CC BY-SA 3.0"
-              },
-    "risd":  {
-                 "author":  "DanielPenfield",
-                 "source":  "https://commons.wikimedia.org/wiki/File:RISD_College_Building.jpg",
-                 "src":  "/images/schools/risd.webp",
-                 "licenseUrl":  "https://creativecommons.org/licenses/by-sa/3.0",
-                 "title":  "RISD College Building.jpg",
-                 "license":  "CC BY-SA 3.0"
-             }
+  "mica": {
+    "author": "Spike55151 (talk) (Uploads)",
+    "source": "https://commons.wikimedia.org/wiki/File:Brown_Center.jpg",
+    "src": "/images/schools/mica.webp",
+    "licenseUrl": null,
+    "title": "Brown Center.jpg",
+    "license": "Public domain"
+  },
+  "fit": {
+    "author": "Beyond My Ken",
+    "source": "https://commons.wikimedia.org/wiki/File:FIT_27th_Street_campus.jpg",
+    "src": "/images/schools/fit.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "title": "FIT 27th Street campus.jpg",
+    "license": "CC BY-SA 4.0"
+  },
+  "saic": {
+    "author": "Alanscottwalker",
+    "source": "https://commons.wikimedia.org/wiki/File:School_of_the_Art_Institute_Chicago_Grant_Park.JPG",
+    "src": "/images/schools/saic.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "title": "School of the Art Institute Chicago Grant Park.JPG",
+    "license": "CC BY-SA 3.0"
+  },
+  "parsons": {
+    "author": "Ajay Suresh from New York, NY, USA",
+    "source": "https://commons.wikimedia.org/wiki/File:The_University_Center_for_the_New_School_(48072770027).jpg",
+    "src": "/images/schools/parsons.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "The University Center for the New School (48072770027).jpg",
+    "license": "CC BY 2.0"
+  },
+  "pratt": {
+    "author": "Jonathan Bowen",
+    "source": "https://commons.wikimedia.org/wiki/File:Pratt_Institute_main_building.JPG",
+    "src": "/images/schools/pratt.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "title": "Pratt Institute main building.JPG",
+    "license": "CC BY-SA 3.0"
+  },
+  "risd": {
+    "author": "DanielPenfield",
+    "source": "https://commons.wikimedia.org/wiki/File:RISD_College_Building.jpg",
+    "src": "/images/schools/risd.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "title": "RISD College Building.jpg",
+    "license": "CC BY-SA 3.0"
+  },
+  "artcenter": {
+    "author": "Jchobanana",
+    "source": "https://commons.wikimedia.org/wiki/File:ArtCenter_College_of_Design,_South_Campus_building_1.jpg",
+    "src": "/images/schools/artcenter.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "title": "ArtCenter College of Design, South Campus building 1.jpg",
+    "license": "CC BY-SA 4.0"
+  },
+  "central-saint-martins": {
+    "author": "Maiximillion",
+    "source": "https://commons.wikimedia.org/wiki/File:Central_saint_martins_kings_cross_campus.jpg",
+    "src": "/images/schools/central-saint-martins.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "title": "Central saint martins kings cross campus.jpg",
+    "license": "CC BY-SA 3.0"
+  },
+  "emily-carr": {
+    "author": "BriefEdits",
+    "source": "https://commons.wikimedia.org/wiki/File:Emily_Carr_University_of_Art_and_Design,_exterior,_Vancouver,_BC_(May_2025).jpg",
+    "src": "/images/schools/emily-carr.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "title": "Emily Carr University of Art and Design, exterior, Vancouver, BC (May 2025).jpg",
+    "license": "CC BY-SA 3.0"
+  },
+  "columbia": {
+    "author": "Ajay Suresh from New York, NY, USA",
+    "source": "https://commons.wikimedia.org/wiki/File:Columbia_University_-_Low_Memorial_Library_(48170370506).jpg",
+    "src": "/images/schools/columbia.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "Columbia University - Low Memorial Library (48170370506).jpg",
+    "license": "CC BY 2.0"
+  },
+  "cornell": {
+    "author": "sach1tb",
+    "source": "https://commons.wikimedia.org/wiki/File:Cornell_University,_Ho_Plaza_and_Sage_Hall.jpg",
+    "src": "/images/schools/cornell.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "title": "Cornell University, Ho Plaza and Sage Hall.jpg",
+    "license": "CC BY-SA 2.0"
+  },
+  "yale": {
+    "author": "flickr: Enzo Figueres from New Haven, USA",
+    "source": "https://commons.wikimedia.org/wiki/File:Yale_Sculpture_Building_2008.jpg",
+    "src": "/images/schools/yale.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "Yale Sculpture Building 2008.jpg",
+    "license": "CC BY 2.0"
+  },
+  "cooper-union": {
+    "author": "Committee to Save Cooper Union",
+    "source": "https://commons.wikimedia.org/wiki/File:Cooper_Union_New_Academic_Building.jpg",
+    "src": "/images/schools/cooper-union.webp",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "title": "Cooper Union New Academic Building.jpg",
+    "license": "CC0"
+  },
+  "nyu": {
+    "author": "Cincin12",
+    "source": "https://commons.wikimedia.org/wiki/File:NYU_Campus.jpg",
+    "src": "/images/schools/nyu.webp",
+    "licenseUrl": null,
+    "title": "NYU Campus.jpg",
+    "license": "Public domain"
+  },
+  "sva": {
+    "author": "ajay_suresh",
+    "source": "https://commons.wikimedia.org/wiki/File:School_of_Visual_Arts_(SVA_NYC)_(51708609282).jpg",
+    "src": "/images/schools/sva.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "School of Visual Arts (SVA NYC) (51708609282).jpg",
+    "license": "CC BY 2.0"
+  },
+  "cmu": {
+    "author": "Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:CMU_campus_Cathedral_Learning_background.jpg",
+    "src": "/images/schools/cmu.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "title": "CMU campus Cathedral Learning background.jpg",
+    "license": "CC BY-SA 2.0"
+  },
+  "hunter": {
+    "author": "Kenneth C. Zirkel",
+    "source": "https://commons.wikimedia.org/wiki/File:Hunter_College_West,_NYC.jpg",
+    "src": "/images/schools/hunter.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "title": "Hunter College West, NYC.jpg",
+    "license": "CC BY-SA 4.0"
+  },
+  "massart": {
+    "author": "MassArt",
+    "source": "https://massart.edu/news/massart-ranked-among-top-3-art-schools-in-the-us-by-art-object/",
+    "src": "/images/schools/massart.webp",
+    "licenseUrl": null,
+    "title": "massart campus",
+    "license": "출처 페이지 이미지"
+  },
+  "rit": {
+    "author": "Matthew D. Wilson ( LtPowers )",
+    "source": "https://commons.wikimedia.org/wiki/File:RIT_building_-_Mark_Ellingson_Hall.jpg",
+    "src": "/images/schools/rit.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "title": "RIT building - Mark Ellingson Hall.jpg",
+    "license": "CC BY-SA 2.5"
+  },
+  "scad": {
+    "author": "SCAD",
+    "source": "https://www.scad.edu/life/buildings-and-facilities/anderson-hall",
+    "src": "/images/schools/scad.webp",
+    "licenseUrl": null,
+    "title": "scad campus",
+    "license": "출처 페이지 이미지"
+  },
+  "smfa-tufts": {
+    "author": "Daderot",
+    "source": "https://commons.wikimedia.org/wiki/File:School_of_the_Museum_of_Fine_Arts_-_DSC00014.jpg",
+    "src": "/images/schools/smfa-tufts.webp",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "title": "School of the Museum of Fine Arts - DSC00014.jpg",
+    "license": "CC0"
+  },
+  "syracuse": {
+    "author": "John Marino",
+    "source": "https://commons.wikimedia.org/wiki/File:Syracuse_University_Aerial_view.jpg",
+    "src": "/images/schools/syracuse.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "Syracuse University Aerial view.jpg",
+    "license": "CC BY 2.0"
+  },
+  "university-of-the-arts": {
+    "author": "See below",
+    "source": "https://commons.wikimedia.org/wiki/File:WTP_D23_AMP_1.jpg",
+    "src": "/images/schools/university-of-the-arts.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "title": "WTP D23 AMP 1.jpg",
+    "license": "CC BY-SA 3.0"
+  },
+  "vcu": {
+    "author": "Rich Life in Richmond",
+    "source": "https://richinrichmond.com/places-to-go/2017/7/9/vcu-monroe-park-campus",
+    "src": "/images/schools/vcu.webp",
+    "licenseUrl": null,
+    "title": "vcu campus",
+    "license": "출처 페이지 이미지"
+  },
+  "uiuc": {
+    "author": "Daniel Schwen",
+    "source": "https://commons.wikimedia.org/wiki/File:UIUC_Main_Quad.jpg",
+    "src": "/images/schools/uiuc.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "title": "UIUC Main Quad.jpg",
+    "license": "CC BY-SA 4.0"
+  },
+  "calarts": {
+    "author": "Bobak Ha'Eri",
+    "source": "https://commons.wikimedia.org/wiki/File:2012-1104-CalArts01.jpg",
+    "src": "/images/schools/calarts.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "title": "2012-1104-CalArts01.jpg",
+    "license": "CC BY 3.0"
+  },
+  "cca": {
+    "author": "edwardhblake",
+    "source": "https://commons.wikimedia.org/wiki/File:Montgomery_Building,_California_College_of_the_Arts.jpg",
+    "src": "/images/schools/cca.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "Montgomery Building, California College of the Arts.jpg",
+    "license": "CC BY 2.0"
+  },
+  "academy-of-art": {
+    "author": "EduChances",
+    "source": "https://www.educhances.edu.vn/en/overseas-study/arts-design/introduction-of-schools/academy-of-art-university-the-biggest-private-university-in-arts-and-design-in-the-u-s-a.html",
+    "src": "/images/schools/academy-of-art.webp",
+    "licenseUrl": null,
+    "title": "academy-of-art campus",
+    "license": "출처 페이지 이미지"
+  },
+  "otis": {
+    "author": "Otis College",
+    "source": "https://www.otis.edu/admissions-aid/tuition-aid/scholarships-aid/scholarships/charles-white-scholarship/index.html",
+    "src": "/images/schools/otis.webp",
+    "licenseUrl": null,
+    "title": "otis campus",
+    "license": "출처 페이지 이미지"
+  },
+  "sfai": {
+    "author": "FoxyOrange",
+    "source": "https://commons.wikimedia.org/wiki/File:San_Francisco_Art_Institute_atrium.JPG",
+    "src": "/images/schools/sfai.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "title": "San Francisco Art Institute atrium.JPG",
+    "license": "CC BY-SA 3.0"
+  },
+  "usc": {
+    "author": "Bobak Ha'Eri",
+    "source": "https://commons.wikimedia.org/wiki/File:052607-016-BovardHall-USC.jpg",
+    "src": "/images/schools/usc.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "title": "052607-016-BovardHall-USC.jpg",
+    "license": "CC BY 3.0"
+  },
+  "rca": {
+    "author": "Chmee2",
+    "source": "https://commons.wikimedia.org/wiki/File:Darwin_Building,_Royal_College_of_Art_in_London,_spring_2013.JPG",
+    "src": "/images/schools/rca.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "title": "Darwin Building, Royal College of Art in London, spring 2013.JPG",
+    "license": "CC BY-SA 3.0"
+  },
+  "london-college-of-fashion": {
+    "author": "The wub",
+    "source": "https://commons.wikimedia.org/wiki/File:V%26A_East_%26_UAL,_Olympic_Park_(1)_-_2023-04-04_-_2023-04-04.jpg",
+    "src": "/images/schools/london-college-of-fashion.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "title": "V&A East & UAL, Olympic Park (1) - 2023-04-04 - 2023-04-04.jpg",
+    "license": "CC BY-SA 4.0"
+  },
+  "ucl-slade": {
+    "author": "UCL Mathematical and Physical Sciences from London, UK",
+    "source": "https://commons.wikimedia.org/wiki/File:Slade_School_of_Fine_Art_(16694041931).jpg",
+    "src": "/images/schools/ucl-slade.webp",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "title": "Slade School of Fine Art (16694041931).jpg",
+    "license": "CC BY 2.0"
+  },
+  "alberta-arts": {
+    "author": "User:Thivierr",
+    "source": "https://commons.wikimedia.org/wiki/File:Alberta_College_of_Art_and_Design_3.jpg",
+    "src": "/images/schools/alberta-arts.webp",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "title": "Alberta College of Art and Design 3.jpg",
+    "license": "CC BY-SA 3.0"
+  },
+  "ocad": {
+    "author": "OCAD University",
+    "source": "https://www.ocadu.ca/",
+    "src": "/images/schools/ocad.webp",
+    "licenseUrl": null,
+    "title": "ocad campus",
+    "license": "출처 페이지 이미지"
+  },
+  "ringling": {
+    "author": "Ringling College Galleries",
+    "source": "https://www.ringlingcollege.gallery/visit",
+    "src": "/images/schools/ringling.webp",
+    "licenseUrl": null,
+    "title": "ringling campus",
+    "license": "출처 페이지 이미지"
+  },
+  "ccs": {
+    "author": "College for Creative Studies / GlobeNewswire",
+    "source": "https://www.globenewswire.com/news-release/2019/09/25/1920564/0/en/The-College-for-Creative-Studies-Exceeds-Fall-Enrollment-Goals.html",
+    "src": "/images/schools/ccs.webp",
+    "licenseUrl": null,
+    "title": "College for Creative Studies campus",
+    "license": "출처 페이지 이미지"
+  }
 }

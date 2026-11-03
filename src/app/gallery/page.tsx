@@ -3,11 +3,9 @@ import Image from "next/image";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import { galleryGroups } from "@/data/images";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "학생 작품",
-  description: "NINE·W 학생들의 작품을 소개하는 갤러리입니다.",
-};
+export const metadata: Metadata = pageMetadata("학생 작품", "NINE·W 학생들의 작품을 소개하는 갤러리입니다.", "/gallery");
 
 export default function GalleryPage() {
   return (

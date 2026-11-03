@@ -45,7 +45,7 @@ export default function HeroSlideshow({ children }: { children?: React.ReactNode
           const current = index === frame.index;
           const previous = index === frame.previous;
           return <div key={`${index}-${current || previous ? frame.sequence : "idle"}`} className={`hero-slide ${current ? "is-current" : previous ? "is-previous" : "is-hidden"} ${frame.sequence > 0 ? "has-motion" : ""} ${frame.direction === 1 ? "moves-left" : "moves-right"}`} aria-hidden={!current} role="group" aria-roledescription="슬라이드" aria-label={`${index + 1} / ${slides.length}`}>
-            <Image src={slide.src} alt={slide.alt} fill priority={index === 0} loading={index === 0 ? undefined : "eager"} sizes="100vw" className="object-cover" />
+            <Image src={slide.src} alt={slide.alt} fill priority={index === 0} loading={index === 0 ? undefined : "eager"} sizes="100vw" className="object-cover" style={{ objectPosition: slide.objectPosition ?? "center" }} />
           </div>;
         })}
       </div>

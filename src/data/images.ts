@@ -1,10 +1,16 @@
 // User-selected originals; each photograph is assigned to one placement.
 export type RealImage = {src:string;alt:string};
-export const heroSlides = [
+export type HeroSlide = RealImage & {caption:string;objectPosition?:string};
+export const heroSlides: HeroSlide[] = [
   {
     "src": "/images/real/selected-work-2.webp",
     "alt": "다양한 색채로 표현한 실내 공간 회화",
     "caption": "학생 작품 — 색채와 공간"
+  },
+  {
+    "src": "/images/real/hero-studio-artwork.png",
+    "alt": "색연필과 드로잉 도구가 놓인 작업대 위 학생 작품",
+    "caption": "작업실 풍경 — 작품을 만드는 자리"
   },
   {
     "src": "/images/real/selected-work-27.webp",
@@ -22,6 +28,12 @@ export const heroSlides = [
     "caption": "학생 작품 — 오브제 실험"
   },
   {
+    "src": "/images/real/hero-academy-exterior.png",
+    "objectPosition": "center 20%",
+    "alt": "맑은 하늘 아래 NINE·W 유학미술 간판과 학원 주변 건물 전경",
+    "caption": "학원 전경 — NINE·W로 오는 길"
+  },
+  {
     "src": "/images/real/selected-work-6.webp",
     "alt": "푸른 색과 기하학적 패턴으로 구성한 공간 회화",
     "caption": "학생 작품 — 공간과 패턴"
@@ -35,6 +47,11 @@ export const heroSlides = [
     "src": "/images/real/selected-work-20.webp",
     "alt": "주변 풍경을 선으로 기록한 드로잉",
     "caption": "학생 작품 — 관찰과 기록"
+  },
+  {
+    "src": "/images/real/hero-studio-interior.png",
+    "alt": "미술 재료가 놓인 작업실에서 작품을 제작하는 수업 장면",
+    "caption": "수업 장면 — 작업실의 하루"
   },
   {
     "src": "/images/real/selected-work-37.webp",
@@ -57,7 +74,7 @@ export const programImages: Record<string,RealImage> = {
     "alt": "해 질 무렵 옥상에서 풍경을 그리는 수업 장면"
   },
   "transfer": {
-    "src": "/images/real/selected-class-21.webp",
+    "src": "/images/real/selected-class-21-mosaic.png",
     "alt": "작업대에서 입체 조형물을 만드는 수업 장면"
   },
   "graduate": {
