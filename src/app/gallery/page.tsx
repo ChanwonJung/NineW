@@ -13,7 +13,6 @@ export default function GalleryPage() {
   return (
     <>
       <PageHero
-        eyebrow="학생 작품"
         title="학생 작품 갤러리"
         description="공개 동의를 확인한 작품만 소개합니다. 특정 학생을 알아볼 수 있는 이름이나 정보는 넣지 않습니다."
       />
@@ -21,7 +20,6 @@ export default function GalleryPage() {
       {galleryGroups.map((group, i) => (
         <section key={group.title} className={`pg-section ${i % 2 === 1 ? "pg-section-dim" : ""}`}>
           <Container>
-            <p className="eyebrow">GALLERY {String(i + 1).padStart(2, "0")}</p>
             <h2 className="pg-h2">{group.title}</h2>
             <p className="pg-lead">{group.description}</p>
             <div className="pg-photo-grid">

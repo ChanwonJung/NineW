@@ -12,7 +12,6 @@ export default function ReviewsPage() {
   return (
     <>
       <PageHero
-        eyebrow="학생 후기"
         title="학생 후기"
         description="본인 또는 보호자의 게시 동의를 확인한 후기부터 차례로 소개할 예정입니다."
       />

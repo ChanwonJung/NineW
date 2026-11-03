@@ -6,22 +6,20 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navLinks, siteConfig } from "@/data/site";
 import { programs } from "@/data/programs";
+import { schoolRegions } from "@/data/schools";
 
 // 메가 메뉴: 메뉴 영역에 마우스를 올리면 모든 메뉴의 하위 페이지가 한 번에 펼쳐진다.
 const navChildren: Record<string, { href: string; label: string; sub?: string }[]> = {
   "/about": [
     { href: "/about", label: "학원 소개" },
-    { href: "/reviews", label: "학생 후기" },
-    { href: "/blog", label: "소식" },
+    // 학생 후기·소식은 콘텐츠 준비 전까지 메뉴에서 숨긴다. 페이지(/reviews, /blog)는 그대로 있다.
+    // { href: "/reviews", label: "학생 후기" },
+    // { href: "/blog", label: "소식" },
   ],
   "/programs": [{ href: "/programs", label: "수업 안내" }, ...programs.map(p => ({ href: `/programs/${p.slug}`, label: p.name }))],
   "/schools": [
-    { href: "/schools/risd", label: "RISD" },
-    { href: "/schools/parsons", label: "Parsons" },
-    { href: "/schools/pratt", label: "Pratt" },
-    { href: "/schools/saic", label: "SAIC" },
-    { href: "/schools/mica", label: "MICA" },
-    { href: "/schools/fit", label: "FIT" },
+    { href: "/schools", label: "학교 안내" },
+    ...schoolRegions.map(r => ({ href: `/schools?region=${r.key}`, label: r.label })),
   ],
   "/results": [{ href: "/results", label: "합격 실적" }],
   "/gallery": [{ href: "/gallery", label: "학생 작품" }],
@@ -31,10 +29,14 @@ const navChildren: Record<string, { href: string; label: string; sub?: string }[
   ],
 };
 
+// 펼침 영역 높이는 하위 메뉴가 가장 많은 탭에 맞춘다. 메뉴를 추가하면 자동으로 늘어난다.
+const megaRows = Math.max(...Object.values(navChildren).map(children => children.length));
+
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [menuClosed, setMenuClosed] = useState(false);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
 
   const primaryLinks = navLinks.filter(link => ["/about","/programs","/gallery","/results","/schools","/visit"].includes(link.href));
   return (
@@ -48,19 +50,21 @@ export default function Header() {
           <BrandLogo/>
         </Link>
 
-        <nav className={menuClosed ? "header-nav hidden items-center lg:flex is-closed" : "header-nav hidden items-center lg:flex"} aria-label="주요 메뉴" onMouseLeave={() => setMenuClosed(false)}>
+        <nav className={menuClosed ? "header-nav hidden items-center lg:flex is-closed" : "header-nav hidden items-center lg:flex"} aria-label="주요 메뉴" style={{ "--mega-rows": megaRows } as React.CSSProperties} onMouseLeave={() => setMenuClosed(false)}>
           {primaryLinks.map((link) => {
             const active = (pathname === link.href || pathname.startsWith(link.href + "/"));
             const children = navChildren[link.href];
             return (
               <div key={link.href} className="nav-item">
-                <Link
+                {/* 상위 메뉴는 이동하지 않고, 마우스를 올리면 펼쳐지는 하위 메뉴로만 이동한다.
+                    버튼으로 둔 것은 키보드 포커스로도 하위 메뉴를 펼칠 수 있게 하기 위해서다. */}
+                <button
+                  type="button"
                   aria-current={active ? "page" : undefined}
-                  href={link.href}
-                  className="header-menu-link text-ink/80 transition-colors hover:text-accent"
+                  className="header-menu-link cursor-default text-ink/80"
                 >
                   {link.label}
-                </Link>
+                </button>
                 {children && (
                   <div className="nav-dropdown">
                     <ul>
@@ -103,19 +107,38 @@ export default function Header() {
 
       {open && (
         <div id="mobile-navigation" className="border-t border-line bg-paper px-4 pb-6 pt-2 lg:hidden">
+          {/* 모바일도 데스크톱과 같이 상위 메뉴는 펼치기만 하고, 하위 메뉴로만 이동한다. */}
           <nav className="flex flex-col">
-            {navLinks.map((link) => (
-              <Link
-                aria-current={(pathname === link.href || pathname.startsWith(link.href + "/")) ? "page" : undefined} key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={`border-b border-line/70 py-3 text-base ${
-                  (pathname === link.href || pathname.startsWith(link.href + "/")) ? "font-medium text-accent" : "text-ink/85"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {primaryLinks.map((link) => {
+              const expanded = mobileSection === link.href;
+              return (
+                <div key={link.href} className="border-b border-line/70">
+                  <button
+                    type="button"
+                    aria-expanded={expanded}
+                    aria-controls={`mobile-sub-${link.href.slice(1)}`}
+                    onClick={() => setMobileSection(expanded ? null : link.href)}
+                    className="flex w-full items-center justify-between py-3 text-left text-base text-ink/85"
+                  >
+                    {link.label}
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden className={`transition-transform ${expanded ? "rotate-180" : ""}`}>
+                      <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  {expanded && (
+                    <ul id={`mobile-sub-${link.href.slice(1)}`} className="pb-3 pl-3">
+                      {navChildren[link.href].map(child => (
+                        <li key={child.href}>
+                          <Link href={child.href} onClick={() => setOpen(false)} className="block py-2 text-[15px] text-ink/70">
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              );
+            })}
           </nav>
           <a
             href={siteConfig.phoneHref}

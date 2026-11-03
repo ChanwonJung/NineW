@@ -1,29 +1,40 @@
+import BrandLogo from "@/components/BrandLogo";
 import { siteConfig } from "@/data/site";
 
 export default function Footer() {
   const { business } = siteConfig;
 
   return (
-    <footer className="border-t border-line bg-paper-dim text-base text-ink/80">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 pt-16 sm:px-6 lg:grid lg:grid-cols-3 lg:items-end lg:gap-10">
-        <div className="flex flex-col gap-2">
-          <p><b className="font-bold text-ink">상호명</b>&nbsp; {business.name}</p>
-          <p><b className="font-bold text-ink">대표</b>&nbsp; {business.representative}</p>
-          <p><b className="font-bold text-ink">등록번호</b>&nbsp; {business.registrationNumber}</p>
-          <p className="lg:whitespace-nowrap"><b className="font-bold text-ink">주소</b>&nbsp; {business.address}</p>
+    <footer className="site-footer">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        {/* 위: 왼쪽에 로고와 사업자 정보(세로), 오른쪽에 연락처. 전화·이메일은 바로 누를 수 있게 크게 둔다. */}
+        <div className="footer-top">
+          <div className="footer-brand">
+            <BrandLogo />
+            <dl className="footer-business">
+              <div><dt>상호명</dt><dd>{business.name}</dd></div>
+              <div><dt>대표</dt><dd>{business.representative}</dd></div>
+              <div><dt>등록번호</dt><dd>{business.registrationNumber}</dd></div>
+              <div><dt>주소</dt><dd>{business.address}</dd></div>
+            </dl>
+          </div>
+          <dl className="footer-contact">
+            <div>
+              <dt>Tel</dt>
+              <dd><a href={siteConfig.phoneHref}>{siteConfig.phone}</a></dd>
+            </div>
+            <div>
+              <dt>E-mail</dt>
+              <dd><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></dd>
+            </div>
+          </dl>
         </div>
-        <div className="flex flex-col gap-2 lg:justify-self-center">
-          <p className="font-bold text-ink">Tel 전화번호</p>
-          <a href={siteConfig.phoneHref} className="hover:text-accent">{siteConfig.phone}</a>
-        </div>
-        <div className="flex flex-col gap-2 lg:justify-self-end">
-          <p className="font-bold text-ink">E-mail 이메일</p>
-          <a href={`mailto:${siteConfig.email}`} className="underline hover:text-accent">{siteConfig.email}</a>
-        </div>
+
+        {/* 아래: 저작권은 가운데 */}
+        <p className="footer-copyright">
+          Copyright © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+        </p>
       </div>
-      <p className="mx-auto max-w-6xl px-4 pt-12 pb-44 text-sm text-muted sm:px-6 md:pb-28 lg:text-center">
-        Copyright © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
-      </p>
     </footer>
   );
 }

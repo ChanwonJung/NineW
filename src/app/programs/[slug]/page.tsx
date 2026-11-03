@@ -31,7 +31,6 @@ export default async function ProgramPage({ params }: Props) {
     <>
       <section className="pg-hero">
         <Container>
-          <p className="eyebrow">PROGRAM {String(index + 1).padStart(2, "0")}</p>
           <h1>{program.name}</h1>
           <p className="pg-hero-sub">{program.summary}</p>
         </Container>
@@ -47,7 +46,6 @@ export default async function ProgramPage({ params }: Props) {
               </div>
             )}
             <div className="pg-intro-text">
-              <p className="eyebrow">ABOUT</p>
               <h2 className="pg-h2">{program.name} 소개</h2>
               {program.description.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
             </div>
@@ -57,17 +55,15 @@ export default async function ProgramPage({ params }: Props) {
 
       <section className="pg-section pg-section-dim">
         <Container>
-          <p className="eyebrow">FOR WHOM</p>
           <h2 className="pg-h2">이런 학생에게</h2>
           <ul className="pg-fit-grid">
-            {program.fit.map((item, i) => <li key={item}><span>{String(i + 1).padStart(2, "0")}</span><p>{item}</p></li>)}
+            {program.fit.map(item => <li key={item}><p>{item}</p></li>)}
           </ul>
         </Container>
       </section>
 
       <section className="pg-section">
         <Container>
-          <p className="eyebrow">PROCESS</p>
           <h2 className="pg-h2">수업 진행</h2>
           <ol className="pg-step-grid">
             {program.steps.map(([title, text], i) => <li key={title}><span>{i + 1}</span><strong>{title}</strong><p>{text}</p></li>)}

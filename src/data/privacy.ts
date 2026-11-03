@@ -1,14 +1,8 @@
-import type { Metadata } from "next";
-import Container from "@/components/Container";
-import PageHero from "@/components/PageHero";
 import { siteConfig } from "@/data/site";
 
-export const metadata: Metadata = {
-  title: "개인정보 처리방침",
-  description: "NINE·W가 상담 신청 시 수집하는 개인정보 항목과 처리 방침을 안내합니다.",
-};
+export const privacyEffectiveDate = "2026년 9월 14일";
 
-const sections = [
+export const privacySections = [
   {
     title: "1. 수집하는 개인정보 항목",
     body: "상담 신청 시 이름, 연락처, 관심 수업, 선택적으로 입력한 상담 내용을 수집합니다.",
@@ -34,24 +28,3 @@ const sections = [
     body: `개인정보 관련 문의는 아래 연락처로 해 주세요.\n전화: ${siteConfig.phone}\n주소: ${siteConfig.address.fullAddress}`,
   },
 ];
-
-export default function PrivacyPage() {
-  return (
-    <>
-      <PageHero eyebrow="PRIVACY" title="개인정보 처리방침" description="상담 신청 시 수집하는 개인정보와 처리 방침을 안내합니다." />
-      <section className="pg-section pg-section-dim">
-        <Container>
-          <div className="pg-policy">
-            {sections.map((section) => (
-              <div key={section.title} className="pg-card">
-                <h2>{section.title}</h2>
-                <p>{section.body}</p>
-              </div>
-            ))}
-            <p className="pg-note">시행일: 2026년 9월 14일</p>
-          </div>
-        </Container>
-      </section>
-    </>
-  );
-}

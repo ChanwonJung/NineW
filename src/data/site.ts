@@ -4,7 +4,7 @@ export const siteConfig = {
   nameEn: "NineW",
   tagline: "1997년부터 이어온 유학미술 포트폴리오 수업",
   description:
-    "정석희 원장님이 직접 지도하는 1대1 소수정예 유학미술학원입니다. 학생 개개인의 시선으로 포트폴리오를 준비합니다.",
+    "정석희 원장님이 직접 지도하는 1대1 소수정예 유학미술학원입니다. 학생마다 따로 계획을 세워 포트폴리오를 준비합니다.",
   phone: "0507-1413-7748",
   phoneHref: "tel:0507-1413-7748",
   email: "ninew_studio@naver.com",
@@ -41,8 +41,9 @@ export const navLinks = [
   { href: "/schools", label: "학교 안내" },
   { href: "/results", label: "합격 실적" },
   { href: "/gallery", label: "학생 작품" },
-  { href: "/reviews", label: "학생 후기" },
-  { href: "/blog", label: "소식" },
+  // 학생 후기·소식은 콘텐츠 준비 전까지 메뉴에서 숨긴다.
+  // { href: "/reviews", label: "학생 후기" },
+  // { href: "/blog", label: "소식" },
   { href: "/visit", label: "오시는 길" },
   { href: "/faq", label: "FAQ" },
 ] as const;

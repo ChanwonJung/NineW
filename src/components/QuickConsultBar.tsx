@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
+import { privacyEffectiveDate, privacySections } from "@/data/privacy";
 
 const DISMISS_KEY = "quick-consult-dismissed";
 
@@ -12,6 +12,7 @@ export default function QuickConsultBar() {
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [error, setError] = useState("");
   const busy = useRef(false);
+  const policy = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -86,8 +87,7 @@ export default function QuickConsultBar() {
         ) : (
           <form onSubmit={submit} className="quick-consult-form">
             <span className="quick-consult-label">
-              <span className="eyebrow">QUICK CONSULT</span>
-              <span className="quick-consult-title">지금 상담 신청하기</span>
+              <span className="quick-consult-title">빠른 상담 신청</span>
             </span>
             <span className="quick-consult-fields">
               <input name="name" type="text" placeholder="이름" required maxLength={60} autoComplete="name" />
@@ -101,7 +101,7 @@ export default function QuickConsultBar() {
               <label className="quick-consult-consent">
                 <input name="consent" type="checkbox" required />
                 <span>
-                  <Link href="/privacy">개인정보 수집·이용</Link>&nbsp;동의
+                  <button type="button" onClick={() => policy.current?.showModal()}>개인정보 수집·이용</button>&nbsp;동의
                 </span>
               </label>
             </span>
@@ -125,6 +125,22 @@ export default function QuickConsultBar() {
           닫기
         </button>
       </div>
+      {/* 별도 페이지로 이동하지 않고 상담 바 안에서 처리방침을 읽을 수 있게 한다. 바깥(배경)을 누르면 닫힌다. */}
+      <dialog ref={policy} className="quick-consult-policy" aria-labelledby="quick-consult-policy-title" onClick={e => { if (e.target === e.currentTarget) e.currentTarget.close(); }}>
+        <div className="quick-consult-policy-body">
+          <h2 id="quick-consult-policy-title">개인정보 처리방침</h2>
+          {privacySections.map(section => (
+            <section key={section.title}>
+              <h3>{section.title}</h3>
+              <p>{section.body}</p>
+            </section>
+          ))}
+          <p className="quick-consult-policy-date">시행일: {privacyEffectiveDate}</p>
+        </div>
+        <form method="dialog" className="quick-consult-policy-actions">
+          <button type="submit">확인</button>
+        </form>
+      </dialog>
     </div>
   );
 }

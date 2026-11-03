@@ -1,5 +1,12 @@
+// 학교 안내 메뉴와 목록의 지역 구분. 시카고(SAIC)는 중부지만 동부로 묶는다.
+export const schoolRegions = [
+  { key: "east", label: "미국 동부" },
+  { key: "west", label: "미국 서부" },
+  { key: "europe", label: "유럽" },
+] as const;
+export type SchoolRegion = (typeof schoolRegions)[number]["key"];
 export type SchoolGuide = {
- slug: string; name: string; nameKo: string; fullName: string; location: string;
+ slug: string; name: string; nameKo: string; fullName: string; location: string; region: SchoolRegion;
  scope: string; cycle: string; tags: string[]; intro: string; highlight: string;
  requirements: string[]; scopeNote: string; deadlines: string[][];
  deadlineNote: string; advice: string[]; sources: string[][]; accent: string;
@@ -13,13 +20,14 @@ export const schools: SchoolGuide[] = [
     "nameKo": "로드아일랜드디자인스쿨",
     "fullName": "Rhode Island School of Design",
     "location": "미국 · 프로비던스",
+    "region": "east",
     "scope": "학부 신입학",
     "cycle": "2027 입학 안내",
     "tags": [
       "회화·입체",
       "디자인"
     ],
-    "intro": "최근 작품을 통해 생각하는 방식과 만드는 능력을 함께 보여주는 지원입니다.",
+    "intro": "최근 작품으로 생각하는 방식과 만드는 능력을 보여주는 지원입니다.",
     "highlight": "12–20점",
     "requirements": [
       "최근 작품 12–20점으로 사고 과정과 제작 역량을 보여줍니다.",
@@ -37,10 +45,10 @@ export const schools: SchoolGuide[] = [
         "2027.01.20"
       ]
     ],
-    "deadlineNote": "2027 입학 페이지 기준입니다. Early Decision은 합격 시 진학 약속이 따르는 전형이며, 재정보조 마감은 지원서 마감과 다릅니다.",
+    "deadlineNote": "2027 입학 페이지 기준입니다. Early Decision은 합격 시 진학 약속이 따르는 전형이며 재정보조 마감은 지원서 마감과 다릅니다.",
     "advice": [
-      "한 가지 소재를 관찰한 작품과, 그 관찰을 재료·공간으로 확장한 작품을 함께 점검해 보세요.",
-      "완성작을 고르기 전에 지금의 관심사가 무엇인지 정리하고, 각 작품이 그 관심사를 어떻게 드러내는지 짧게 써보는 것을 권합니다."
+      "한 가지 소재를 관찰한 작품과, 그 관찰을 재료·공간으로 확장한 작품을 나란히 놓고 점검해 보세요.",
+      "완성작을 고르기 전에 지금의 관심사가 무엇인지 정리하고 각 작품이 그 관심사를 어떻게 드러내는지 짧게 써보는 것을 권합니다."
     ],
     "sources": [
       [
@@ -56,6 +64,7 @@ export const schools: SchoolGuide[] = [
     "nameKo": "파슨스디자인스쿨",
     "fullName": "Parsons School of Design",
     "location": "미국 · 뉴욕",
+    "region": "east",
     "scope": "뉴욕 캠퍼스 BFA 신입학",
     "cycle": "공식 공개 요건 · 연도 미표기",
     "tags": [
@@ -67,10 +76,10 @@ export const schools: SchoolGuide[] = [
     "highlight": "8–12슬라이드",
     "requirements": [
       "BFA 신입학은 이미지 8–12슬라이드를 제출합니다. 한 슬라이드에 여러 이미지를 배치할 수 있습니다.",
-      "회화·드로잉·입체·패션·애니메이션 등 다양한 매체를 사용할 수 있으며, 개인의 시선과 실험을 드러내는 구성을 권합니다.",
+      "회화·드로잉·입체·패션·애니메이션 등 다양한 매체를 사용할 수 있으며 개인의 시선과 실험을 드러내는 구성을 권합니다.",
       "Common Application 제출 후 안내받는 Admission Hub에서 최종 포트폴리오를 올립니다. 사전 리뷰는 최종 제출을 대신하지 않습니다."
     ],
-    "scopeNote": "BFA 신입학 기준입니다. 편입은 최대 20슬라이드까지 가능하며, BBA는 포트폴리오 선택 제출 등 조건이 다릅니다. 파리 캠퍼스와도 구분해 확인하세요.",
+    "scopeNote": "BFA 신입학 기준입니다. 편입은 최대 20슬라이드까지 가능하며 BBA는 포트폴리오 선택 제출 등 조건이 다릅니다. 파리 캠퍼스와도 구분해 확인하세요.",
     "deadlines": [
       [
         "가을 EA / ED",
@@ -83,7 +92,7 @@ export const schools: SchoolGuide[] = [
     ],
     "deadlineNote": "공식 상시 페이지의 월·일입니다. 입학연도와 해당 전형의 운영 여부를 다시 확인하세요. 포트폴리오는 제출 안내를 받는 대로 준비해 올리는 것을 권하고 있습니다.",
     "advice": [
-      "작품 수와 슬라이드 수를 구분하고, 한 화면에 너무 많은 이미지를 압축하지 않는 것이 좋습니다.",
+      "작품 수와 슬라이드 수를 구분하고 한 화면에 너무 많은 이미지를 압축하지 않는 것이 좋습니다.",
       "같은 주제를 다른 재료로 실험한 기록이 있다면, 무엇을 바꾸었는지 보이는 이미지를 선별해 보세요."
     ],
     "sources": [
@@ -104,6 +113,7 @@ export const schools: SchoolGuide[] = [
     "nameKo": "프랫인스티튜트",
     "fullName": "Pratt Institute",
     "location": "미국 · 뉴욕",
+    "region": "east",
     "scope": "학부 신입학 · General Visual Portfolio",
     "cycle": "2027 가을 입학 안내",
     "tags": [
@@ -114,7 +124,7 @@ export const schools: SchoolGuide[] = [
     "intro": "최근의 완성작과 직접 관찰한 드로잉으로 자신의 시각을 보여주는 지원입니다.",
     "highlight": "10–20점 · 관찰 작품 포함",
     "requirements": [
-      "General Visual Portfolio는 10–20점이며, 직접 관찰한 입체 상황·대상을 그린 작품 3–5점를 포함합니다.",
+      "General Visual Portfolio는 10–20점이며 직접 관찰한 입체 상황·대상을 그린 작품 3–5점를 포함합니다.",
       "제출 시점 기준 최근 18개월 내 작품을 준비하고 재료·크기·제작연도를 기록합니다.",
       "Common App 제출 후 계정과 포트폴리오 업로드 안내를 이메일로 받습니다. 과정 기록은 포함할 수 있지만 스케치북만으로 구성하지 않습니다."
     ],
@@ -129,7 +139,7 @@ export const schools: SchoolGuide[] = [
         "1월 15일"
       ]
     ],
-    "deadlineNote": "입학요건은 2027 가을 기준이며, 일정 페이지는 월·일로 안내합니다. 1월 15일 이후에는 정원 상황에 따라 순차 심사가 진행되므로 해당 전공의 잔여 모집 여부를 확인하세요.",
+    "deadlineNote": "입학요건은 2027 가을 기준이며 일정 페이지는 월·일로 안내합니다. 1월 15일 이후에는 정원 상황에 따라 순차 심사가 진행되므로 해당 전공의 잔여 모집 여부를 확인하세요.",
     "advice": [
       "사진을 보고 옮긴 그림과 실제 사물·공간을 관찰해서 그린 작품을 구분해 정리하세요.",
       "완성작 촬영도 준비 과정에 포함하세요. 입체 작품은 형태와 표면이 잘 보이도록 조명과 배경을 점검하는 것이 좋습니다."
@@ -152,6 +162,7 @@ export const schools: SchoolGuide[] = [
     "nameKo": "시카고예술대학",
     "fullName": "School of the Art Institute of Chicago",
     "location": "미국 · 시카고",
+    "region": "east",
     "scope": "BFA in Studio 신입학",
     "cycle": "공식 공개 요건 · 연도 미표기",
     "tags": [
@@ -164,7 +175,7 @@ export const schools: SchoolGuide[] = [
     "requirements": [
       "BFA in Studio는 가장 자신 있는 최근 작품 10–15점을 제출합니다.",
       "한 매체에 집중하거나 여러 매체를 조합할 수 있습니다. 협업 작품은 참여자와 자신의 역할을 설명해야 합니다.",
-      "Common Application 내 Portfolio 항목을 통해 SlideRoom에 작품을 제출합니다. 입학용 포트폴리오는 성적우수 장학 심사에도 사용됩니다."
+      "Common Application 내 Portfolio 항목에서 SlideRoom으로 작품을 제출합니다. 입학용 포트폴리오는 성적우수 장학 심사에도 사용됩니다."
     ],
     "scopeNote": "BFA in Studio 기준입니다. Writing·Art History·Visual and Critical Studies 등은 글과 시각 자료의 요건이 다릅니다.",
     "deadlines": [
@@ -184,7 +195,7 @@ export const schools: SchoolGuide[] = [
     "deadlineNote": "연도가 명시되지 않은 공식 가을학기 일정입니다. 장학 심사 마감과 지원 최종 마감이 다르므로 지원 연도·과정을 확인하세요.",
     "advice": [
       "매체의 개수를 늘리기보다, 여러 작품 사이에서 반복되는 질문이나 관심사를 찾아보세요.",
-      "실험적인 작품도 결과와 의도를 읽을 수 있게 기록하고, 협업했다면 자신이 결정하고 제작한 부분을 구체적으로 정리하세요."
+      "실험적인 작품도 결과와 의도를 읽을 수 있게 기록하고 협업했다면 자신이 결정하고 제작한 부분을 구체적으로 정리하세요."
     ],
     "sources": [
       [
@@ -204,6 +215,7 @@ export const schools: SchoolGuide[] = [
     "nameKo": "메릴랜드예술대학",
     "fullName": "Maryland Institute College of Art",
     "location": "미국 · 볼티모어",
+    "region": "east",
     "scope": "학부 신입학",
     "cycle": "2027 입학 안내",
     "tags": [
@@ -230,8 +242,8 @@ export const schools: SchoolGuide[] = [
     ],
     "deadlineNote": "2027 가을 신입학 공식 일정입니다. 2027 봄 지원은 2026년 11월 16일, 2027 가을 편입은 2027년 3월 15일로 별도 안내됩니다.",
     "advice": [
-      "이전 안내서의 작품 수를 그대로 사용하지 말고, 현재 작품 중 강점이 선명한 작품부터 골라보세요.",
-      "비슷한 작품이 반복된다면 각각의 역할을 비교하고, 다른 관찰이나 표현을 보여주는 작품으로 구성을 조정하는 것이 좋습니다."
+      "이전 안내서의 작품 수를 그대로 사용하지 말고 현재 작품 중 강점이 선명한 작품부터 골라보세요.",
+      "비슷한 작품이 반복된다면 각각의 역할을 비교하고 다른 관찰이나 표현을 보여주는 작품으로 구성을 조정하는 것이 좋습니다."
     ],
     "sources": [
       [
@@ -247,6 +259,7 @@ export const schools: SchoolGuide[] = [
     "nameKo": "뉴욕패션기술대학교",
     "fullName": "Fashion Institute of Technology",
     "location": "미국 · 뉴욕",
+    "region": "east",
     "scope": "Fashion Design AAS",
     "cycle": "공식 공개 요건 · 연도 미표기",
     "tags": [
@@ -270,7 +283,7 @@ export const schools: SchoolGuide[] = [
         "11월 1일"
       ]
     ],
-    "deadlineNote": "해당 전공의 공식 포트폴리오 마감입니다. 지원서 마감과 구분하고, 지원 연도·AAS 지원 자격·입학 학기를 공식 입학 안내에서 확인하세요.",
+    "deadlineNote": "해당 전공의 공식 포트폴리오 마감입니다. 지원서 마감과 구분하고 지원 연도·AAS 지원 자격·입학 학기를 공식 입학 안내에서 확인하세요.",
     "advice": [
       "완성 그림만 준비하지 말고 아이디어, 의복 앞뒤 구조, 원단 선택, 실제 봉제 결과까지 연결해 점검하세요.",
       "봉제와 착장 촬영 시간을 별도로 확보하는 것이 좋습니다. 지정 과제별 이미지 수와 설명 항목을 체크리스트로 정리해 보세요."
@@ -291,11 +304,11 @@ export function getSchool(slug: string) { return schools.find(school => school.s
 
 export const schoolAcademics: Record<string, {text:string; url:string}> = {
   "risd": {
-    "text": "1학년은 드로잉·디자인·공간 실험을 다루는 공통 기초 과정 EFS에서 시작하고, 이후 전공으로 이어집니다. 스튜디오 수업과 인문·교양 수업을 함께 공부하는 구조입니다.",
+    "text": "1학년은 드로잉·디자인·공간 실험을 다루는 공통 기초 과정 EFS에서 시작하고 이후 전공으로 이어집니다. 스튜디오 수업과 인문·교양 수업을 함께 공부하는 구조입니다.",
     "url": "https://www.risd.edu/academics/undergraduate-study"
   },
   "parsons": {
-    "text": "학부 과정은 스튜디오 실습에 비판적 사고와 글쓰기를 연결합니다. 첫해에는 전공 학습에 필요한 기초 역량을 탐색하고, 선택 수업으로 관심을 넓혀갑니다.",
+    "text": "학부 과정은 스튜디오 실습에 비판적 사고와 글쓰기를 연결합니다. 첫해에는 전공 학습에 필요한 기초 역량을 탐색하고 선택 수업으로 관심을 넓혀갑니다.",
     "url": "https://www.newschool.edu/parsons/academics/"
   },
   "pratt": {
