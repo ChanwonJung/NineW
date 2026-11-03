@@ -45,7 +45,7 @@ export default function HeroSlideshow({ children }: { children?: React.ReactNode
           const current = index === frame.index;
           const previous = index === frame.previous;
           return <div key={`${index}-${current || previous ? frame.sequence : "idle"}`} className={`hero-slide ${current ? "is-current" : previous ? "is-previous" : "is-hidden"} ${frame.sequence > 0 ? "has-motion" : ""} ${frame.direction === 1 ? "moves-left" : "moves-right"}`} aria-hidden={!current} role="group" aria-roledescription="슬라이드" aria-label={`${index + 1} / ${slides.length}`}>
-            <Image src={slide.src} alt={slide.alt} fill priority={index === 0} loading={index === 0 ? undefined : "eager"} sizes="100vw" className="object-cover" />
+            <Image src={slide.src} alt={slide.alt} fill priority={index === 0} loading={index === 0 ? undefined : "eager"} sizes="100vw" className="object-cover" style={{ objectPosition: slide.objectPosition ?? "center" }} />
           </div>;
         })}
       </div>
@@ -54,7 +54,6 @@ export default function HeroSlideshow({ children }: { children?: React.ReactNode
       <button type="button" className="hero-arrow is-prev" aria-label="이전 사진" onClick={() => move(-1)}><svg width="30" height="56" viewBox="0 0 30 56" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M24 4L5 28l19 24"/></svg></button>
       <button type="button" className="hero-arrow is-next" aria-label="다음 사진" onClick={() => move(1)}><svg width="30" height="56" viewBox="0 0 30 56" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 4l19 24L6 52"/></svg></button>
       <div className="hero-bottom">
-        <div className="slideshow-caption" aria-live="off" aria-atomic="true"><span>{slides[frame.index].caption}</span></div>
         <div className="slideshow-controls">
           <div className="slideshow-dots" aria-label="사진 선택">{slides.map((slide, index) => <button key={slide.src} type="button" aria-label={`${index + 1}번 사진: ${slide.caption}`} aria-current={index === frame.index ? "true" : undefined} onClick={() => {
             if (index !== frame.index) setFrame(current => ({ index, previous: current.index, direction: 1, sequence: current.sequence + 1 }));
