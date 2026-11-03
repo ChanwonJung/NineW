@@ -87,7 +87,8 @@ export default function QuickConsultBar() {
         ) : (
           <form onSubmit={submit} className="quick-consult-form">
             <span className="quick-consult-label">
-              <span className="quick-consult-title">빠른 상담 신청</span>
+              <span className="eyebrow">QUICK CONSULT</span>
+              <span className="quick-consult-title">지금 상담 신청하기</span>
             </span>
             <span className="quick-consult-fields">
               <input name="name" type="text" placeholder="이름" required maxLength={60} autoComplete="name" />
