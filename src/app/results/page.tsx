@@ -1,25 +1,59 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { schools as schoolGuides } from "@/data/schools";
+import { schoolProfiles } from "@/data/school-profiles";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
-import { eastCoastSchools, midwestSchools, westCoastSchools, otherRegionsNote } from "@/data/results";
+import { acceptanceRegions } from "@/data/results";
 
 export const metadata: Metadata = {
   title: "합격 실적",
-  description: "NINE·W 학생들이 합격한 사례가 있는 학교를 소개합니다.",
+  description: "NINE·W 학생들이 합격한 사례가 있는 학교를 지역별로 소개합니다.",
 };
 
-function SchoolGroup({ title, schools }: { title: string; schools: string[] }) {
+function SchoolGroup({
+  title,
+  schools,
+  note,
+}: {
+  title: string;
+  schools: string[];
+  note?: string;
+}) {
   return (
     <div className="pg-card pg-group">
       <h3>{title}</h3>
-      <div className="pg-chips">
-        {schools.map((school) => {
-          const guide = schoolGuides.find(item => school.includes(item.name));
-          return guide ? <Link key={school} href={`/schools/${guide.slug}`} className="pg-chip is-link">{school} ↗</Link> : <span key={school} className="pg-chip">{school}</span>;
-        })}
-      </div>
+      {schools.length > 0 && (
+        <div className="pg-chips">
+          {schools.map((school) => {
+            const schoolName = school.toLowerCase();
+            const guide = [...schoolProfiles, ...schoolGuides]
+              .map((item) => {
+                const aliases = "aliases" in item ? item.aliases : [];
+                const matchLength = [item.name, item.fullName, ...aliases]
+                  .filter((name) => schoolName.includes(name.toLowerCase()))
+                  .reduce((longest, name) => Math.max(longest, name.length), 0);
+                return { item, matchLength };
+              })
+              .filter(({ matchLength }) => matchLength > 0)
+              .sort((a, b) => b.matchLength - a.matchLength)[0]?.item;
+            return guide ? (
+              <Link
+                key={school}
+                href={`/schools/${guide.slug}`}
+                className="pg-chip is-link"
+              >
+                {school} ↗
+              </Link>
+            ) : (
+              <span key={school} className="pg-chip">
+                {school}
+              </span>
+            );
+          })}
+        </div>
+      )}
+      {note && <p className="pg-group-note">{note}</p>}
     </div>
   );
 }
@@ -35,34 +69,34 @@ export default function ResultsPage() {
       <section className="pg-section">
         <Container>
           <h2 className="pg-h2">합격 사례가 있는 학교</h2>
-          <p className="pg-lead">현재 지원 안내가 준비된 학교는 누르면 학교별 안내로 이동합니다.</p>
+          <p className="pg-lead">
+            지역별 합격 학교를 확인할 수 있습니다. 학교명을 클릭하면 해당 학교의
+            상세 지원 안내를 확인할 수 있습니다.
+          </p>
           <div className="pg-group-grid">
-            <SchoolGroup title="미국 동부" schools={eastCoastSchools} />
-            <SchoolGroup title="미국 중서부" schools={midwestSchools} />
-            <SchoolGroup title="미국 서부" schools={westCoastSchools} />
-            <div className="pg-card pg-group">
-              <h3>그 밖의 지역</h3>
-              <p className="pg-group-note">{otherRegionsNote}</p>
-            </div>
+            {acceptanceRegions.map((region) => (
+              <SchoolGroup
+                key={region.title}
+                title={region.title}
+                schools={region.schools}
+                note={region.note}
+              />
+            ))}
           </div>
-          <p className="school-result-notice">CCA는 과거 합격 기록으로 소개합니다. 학교는 2026–27학년도를 마지막으로 운영을 종료할 예정이며 신규 지원 학교 안내와 구분됩니다. <a href="https://portal.cca.edu/transition/parents/parent-communications/parent-message/" target="_blank" rel="noopener noreferrer">CCA 공식 공지 ↗</a></p>
-          <Link className="editorial-link" href="/schools">현재 학교별 지원 안내 보기 <span aria-hidden="true">↗</span></Link>
-        </Container>
-      </section>
-
-      <section className="pg-section pg-section-dim">
-        <Container>
-          <div className="pg-prose pg-prose-narrow">
-            <p>
-              합격 결과는 학생의 지원 조건과 해당 연도 심사 기준에 따라 달라집니다.
-              특정 학교의 합격이나 장학금을 보장하지 않습니다. 위 목록은 그동안 합격
-              사례가 있었던 학교입니다.
-            </p>
-            <p>
-              합격 연도, 인원, 장학금 규모 같은 세부 실적은 개인정보와 사실 확인을
-              마친 뒤 추가하겠습니다.
-            </p>
-          </div>
+          <p className="school-result-notice">
+            CCA는 과거 합격 기록으로 소개합니다. 학교는 2026–27학년도를 마지막으로
+            운영을 종료할 예정이며, 신규 지원 학교 안내와 구분됩니다.{" "}
+            <a
+              href="https://portal.cca.edu/transition/parents/parent-communications/parent-message/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CCA 공식 공지 ↗
+            </a>
+          </p>
+          <Link className="editorial-link" href="/schools">
+            현재 학교별 지원 안내 보기 <span aria-hidden="true">↗</span>
+          </Link>
         </Container>
       </section>
 

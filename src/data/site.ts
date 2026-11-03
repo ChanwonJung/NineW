@@ -11,7 +11,7 @@ export const siteConfig = {
   instagramHandle: "nine.w_studio",
   instagramUrl: "https://www.instagram.com/nine.w_studio/",
   // 카카오톡 채널을 만들면 친구추가 주소(예: https://pf.kakao.com/_xxxxx)를 넣으세요. 비어 있으면 우측 퀵메뉴에 '준비 중'으로 표시됩니다.
-  kakaoUrl: "",
+  kakaoUrl: "https://pf.kakao.com/_fxjyWX",
   blogUrl: "https://blog.naver.com/ninew_studio",
   naverMapUrl:
     "https://map.naver.com/p/search/%EB%82%98%EC%9D%B8%EB%8D%94%EB%B8%94%EC%9C%A0/place/1370088257?c=15.00,0,0,0,dh&placePath=%2Fhome%3Fbk_query%3D%EB%82%98%EC%9D%B8%EB%8D%94%EB%B8%94%EC%9C%A0%26entry%3Dbmp%26from%3Dmap%26fromPanelNum%3D2%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EB%82%98%EC%9D%B8%EB%8D%94%EB%B8%94%EC%9C%A0",

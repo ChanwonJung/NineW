@@ -3,11 +3,13 @@ import Container from "@/components/Container";
 import ProgramTabs from "@/components/ProgramTabs";
 import { portfolioCriteria } from "@/data/programs";
 import { siteConfig } from "@/data/site";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "수업 안내",
-  description: "포트폴리오반, 특강반, 편입반, 대학원반과 수업 시간을 안내합니다.",
-};
+export const metadata: Metadata = pageMetadata(
+  "수업 안내",
+  "포트폴리오반, 특강반, 편입반, 대학원반과 수업 시간을 안내합니다.",
+  "/programs",
+);
 
 export default function ProgramsPage() {
   return (
@@ -42,9 +44,6 @@ export default function ProgramsPage() {
             <div><span>오후반</span><strong>{siteConfig.classHours.afternoon.replace("오후반 ", "")}</strong></div>
             <div><span>저녁반</span><strong>{siteConfig.classHours.evening.replace("저녁반 ", "")}</strong></div>
           </div>
-          <p className="pg-note">
-            반별 수업 일정과 준비 방향은 학생의 지원 계획에 따라 달라질 수 있습니다. 수업료와 상세 일정은 인스타그램 또는 전화 문의로 안내해 드립니다.
-          </p>
         </Container>
       </section>
 

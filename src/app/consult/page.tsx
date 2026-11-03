@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ConsultForm from "@/components/ConsultForm";
 import { siteConfig } from "@/data/site";
+import { pageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "상담 신청",
-  description: "NINE·W 상담 신청서를 남겨 주세요. 확인 후 연락드립니다.",
-};
+export const metadata: Metadata = pageMetadata("상담 신청", "NINE·W 상담 신청서를 남겨 주세요. 확인 후 연락드립니다.", "/consult");
 
 export default function ConsultPage() {
   return (
