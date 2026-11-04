@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "editorial": {
+      "source": "bergside/awesome-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/editorial/SKILL.md",
+      "computedHash": "e1520060a3f71ec27913bf6e892bb0a23b6bb7a599b39ea680ac47521c980bbb"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "913b9d37d0d54047dd65222bb8c67b2bf04e3cb87dcad1729068d7a8b2c8c396"
+    },
+    "korean-humanizer": {
+      "source": "nomadamas/k-skill",
+      "sourceType": "github",
+      "skillPath": "korean-humanizer/SKILL.md",
+      "computedHash": "4ebf7af60d0e633e5e7e7a7af3942c0ee8c281767157edd234021a4cf4e709bf"
+    }
+  }
+}

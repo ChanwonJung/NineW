@@ -11,7 +11,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { siteConfig } from "@/data/site";
 
 const description =
-  "정석희 원장님이 직접 지도하는 1대1 소수정예 유학미술학원, NINE·W입니다. 학생 개개인의 시선으로 포트폴리오를 준비합니다.";
+  "정석희 원장님이 직접 지도하는 1대1 소수정예 유학미술학원, NINE·W입니다. 학생마다 따로 계획을 세워 포트폴리오를 준비합니다.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

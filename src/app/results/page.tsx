@@ -43,7 +43,7 @@ function SchoolGroup({
                 href={`/schools/${guide.slug}`}
                 className="pg-chip is-link"
               >
-                {school} ↗
+                {school}
               </Link>
             ) : (
               <span key={school} className="pg-chip">
@@ -62,14 +62,12 @@ export default function ResultsPage() {
   return (
     <>
       <PageHero
-        eyebrow="합격 실적"
         title="30여 년간 이어온 합격 사례"
-        description="1997년 미국 뉴저지에서 시작해 서울 강남에서 유학미술 교육을 이어 오며, 아래 학교들에 합격한 사례가 있습니다."
+        description="1997년 미국 뉴저지에서 시작해 서울 강남에서 유학미술 교육을 이어 오며 아래 학교들에 합격한 사례가 있습니다."
       />
 
       <section className="pg-section">
         <Container>
-          <p className="eyebrow">ADMISSIONS</p>
           <h2 className="pg-h2">합격 사례가 있는 학교</h2>
           <p className="pg-lead">
             지역별 합격 학교를 확인할 수 있습니다. 학교명을 클릭하면 해당 학교의
@@ -85,19 +83,8 @@ export default function ResultsPage() {
               />
             ))}
           </div>
-          <p className="school-result-notice">
-            CCA는 과거 합격 기록으로 소개합니다. 학교는 2026–27학년도를 마지막으로
-            운영을 종료할 예정이며, 신규 지원 학교 안내와 구분됩니다.{" "}
-            <a
-              href="https://portal.cca.edu/transition/parents/parent-communications/parent-message/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              CCA 공식 공지 ↗
-            </a>
-          </p>
           <Link className="editorial-link" href="/schools">
-            현재 학교별 지원 안내 보기 <span aria-hidden="true">↗</span>
+            현재 학교별 지원 안내 보기
           </Link>
         </Container>
       </section>

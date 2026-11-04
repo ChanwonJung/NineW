@@ -13,12 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/schools",
     "/results",
     "/gallery",
-    "/reviews",
-    "/blog",
+    // "/reviews", "/blog": 메뉴에서 숨긴 동안 사이트맵에서도 제외
     "/visit",
     "/consult",
     "/faq",
-    "/privacy",
   ];
 
   const schoolRoutes = schools.map((school) => `/schools/${school.slug}`);

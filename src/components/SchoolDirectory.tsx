@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import SchoolIdentity from "@/components/SchoolIdentity";
 import SchoolPhoto from "@/components/SchoolPhoto";
 import { schools } from "@/data/schools";
@@ -60,6 +60,28 @@ const directorySchools: DirectorySchool[] = [
   })),
 ];
 
+// 필터 탭: 선택한 탭 아래 밑줄이 미끄러져 옮겨 간다(홈 지역별 학교 안내 탭과 같은 동작).
+function FilterTabs<T extends string>({ label, options, value, onChange, className = "" }: { label: string; options: { value: T; label: string }[]; value: T; onChange: (v: T) => void; className?: string }) {
+  const buttons = useRef<(HTMLButtonElement | null)[]>([]);
+  const [bar, setBar] = useState({ left: 0, width: 0 });
+  const index = options.findIndex((o) => o.value === value);
+  useLayoutEffect(() => {
+    const place = () => {
+      const el = buttons.current[index];
+      if (el) setBar({ left: el.offsetLeft, width: el.offsetWidth });
+    };
+    place();
+    window.addEventListener("resize", place);
+    return () => window.removeEventListener("resize", place);
+  }, [index]);
+  return <div className={`school-filters ${className}`} role="group" aria-label={label}>
+    {options.map((o, i) => <button type="button" key={o.value} ref={(el) => { buttons.current[i] = el; }} aria-pressed={value === o.value} onClick={() => onChange(o.value)}>{o.label}</button>)}
+    <span className="school-filter-bar" aria-hidden="true" data-ready={bar.width > 0 || undefined} style={{ transform: `translateX(${bar.left}px)`, width: bar.width }} />
+  </div>;
+}
+
+const CATEGORIES = ["전체", "회화·입체", "디자인", "패션"].map((tag) => ({ value: tag, label: tag }));
+
 export default function SchoolDirectory({ initialRegion = "all" }: { initialRegion?: "all" | SchoolRegion }) {
   const [region, setRegion] = useState<"all" | SchoolRegion>(initialRegion);
   const [category, setCategory] = useState("전체");
@@ -75,21 +97,17 @@ export default function SchoolDirectory({ initialRegion = "all" }: { initialRegi
   return <div>
     <div className="school-region-tools">
       <p>지역</p>
-      <div className="school-filters school-region-filters" role="group" aria-label="지역">
-        {schoolRegionOptions.map((option) => <button type="button" key={option.value} aria-pressed={region === option.value} onClick={() => setRegion(option.value)}>{option.label}</button>)}
-      </div>
+      <FilterTabs label="지역" className="school-region-filters" options={schoolRegionOptions} value={region} onChange={setRegion} />
     </div>
     <div className="school-tools">
       <div>
         <p className="school-filter-label">관심 분야</p>
-        <div className="school-filters" role="group" aria-label="관심 분야">
-          {["전체", "회화·입체", "디자인", "패션"].map((tag) => <button type="button" key={tag} aria-pressed={category === tag} onClick={() => setCategory(tag)}>{tag}</button>)}
-        </div>
+        <FilterTabs label="관심 분야" options={CATEGORIES} value={category} onChange={setCategory} />
       </div>
       <label className="school-search"><span className="sr-only">학교명 검색</span><input type="search" placeholder="학교명 검색" value={query} onChange={(event) => setQuery(event.target.value)} /></label>
     </div>
 
-    <p className="school-count" aria-live="polite">{region === "all" ? "전체 지역" : schoolRegionOptions.find((option) => option.value === region)?.label} {visible.length}곳 · 학교의 성격과 공식 지원 정보를 함께 살펴보세요</p>
+    <p className="school-count" aria-live="polite">{region === "all" ? "전체 지역" : schoolRegionOptions.find((option) => option.value === region)?.label} {visible.length}곳</p>
     <div className="school-directory">
       {visible.map((school) => <Link key={school.slug} className="school-directory-entry" href={"/schools/" + school.slug}>
         <SchoolPhoto slug={school.slug} name={school.name} />
@@ -98,7 +116,7 @@ export default function SchoolDirectory({ initialRegion = "all" }: { initialRegi
           <div><span className="school-location">{school.regionLabel} · {school.location}</span><h2>{school.name}</h2><p className="school-korean">{school.nameKo}</p></div>
         </div>
         <div className="school-entry-description"><p>{school.intro}</p><span>{school.scope}</span></div>
-        <div className="school-entry-end"><span>{school.highlight}</span><span aria-hidden="true">↗</span></div>
+        <div className="school-entry-end"><span>{school.highlight}</span></div>
       </Link>)}
     </div>
     {visible.length === 0 && <div className="school-empty"><p>조건에 맞는 학교가 없습니다.</p><button type="button" onClick={() => { setRegion("all"); setCategory("전체"); setQuery(""); }}>전체 학교 보기</button></div>}

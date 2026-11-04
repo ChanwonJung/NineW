@@ -9,18 +9,16 @@ export const metadata: Metadata = {
  description:"NINE·W의 역사와 교육철학, 정석희 원장의 주요 이력을 소개합니다.",
 };
 export default function AboutPage(){return <>
- <PageHero eyebrow="학원 소개" title="스스로 찾은 질문이 작품이 되도록" description="NINE·W는 학생의 포트폴리오를 같은 모습으로 만드는 것을 목표로 하지 않습니다. 학생마다 다르게 보고, 느끼고, 궁금해하는 지점이 작품으로 이어질 수 있도록 돕습니다."/>
+ <PageHero title="1997년 뉴저지에서 시작한 유학미술학원" description="학생마다 관심사와 준비 기간이 달라서, 포트폴리오도 학생마다 따로 계획합니다."/>
  <section className="pg-section"><Container>
  <div className="pg-intro">
  <div className="pg-detail-image bg-paper-dim"><Image src={aboutImages.history.src} alt={aboutImages.history.alt} fill sizes="(min-width:1024px) 560px, 100vw" className="object-contain"/></div>
  <div className="pg-intro-text">
- <p className="eyebrow">HISTORY</p>
  <h2 className="pg-h2">유학미술 교육을 이어온 시간</h2>
  <p>NINE·W는 1997년 미국 동부 뉴저지에서 시작해 서울 강남에서 약 30년간 유학미술 교육을 이어 왔습니다. 그동안 컬럼비아·코넬·예일, 쿠퍼유니언·NYU·RISD·SVA·Pratt·FIT·Parsons·MICA·CMU를 비롯한 미국 동부 학교와 SAIC 등 중서부 학교, CalArts·CCA 등 서부 학교, 영국·독일·캐나다의 미술·디자인 학교 합격생을 배출해 왔습니다.</p>
  </div></div>
  </Container></section>
  <section className="about-philosophy pg-section pg-section-dim"><Container>
- <p className="eyebrow">PHILOSOPHY</p>
  <h2 className="pg-h2">교육 철학</h2>
  <div className="pg-intro pg-intro-top">
  <div className="pg-detail-image"><Image src={aboutImages.philosophy.src} alt={aboutImages.philosophy.alt} fill sizes="(min-width:1024px) 560px, 100vw" className="object-cover"/></div>

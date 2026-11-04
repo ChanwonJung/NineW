@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function VisitPage() {
   return (
     <>
-      <PageHero eyebrow="LOCATION" title="NINE·W로 오시는 길" description="매봉역 3번 출구, 강남에 있습니다." />
+      <PageHero title="NINE·W로 오시는 길" description="3호선 매봉역 4번 출구에서 걸어서 약 3분 거리입니다." />
 
       <section className="pg-section">
         <Container>
@@ -25,7 +25,7 @@ export default function VisitPage() {
               <div className="pg-card pg-info">
                 <span>지하철</span>
                 <p>{siteConfig.address.subway}</p>
-                <p className="pg-info-sub">{siteConfig.address.subwayAlt}</p>
+                <p>{siteConfig.address.subwayAlt}</p>
               </div>
               <div className="pg-card pg-info">
                 <span>버스</span>
