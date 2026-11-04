@@ -43,7 +43,7 @@ export default function Header() {
   const primaryLinks = navLinks.filter(link => ["/about","/programs","/gallery","/results","/schools","/visit"].includes(link.href));
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-[68px] max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link
           href="/"
           className="brand-home-link text-ink"

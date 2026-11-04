@@ -43,7 +43,7 @@ function SchoolGroup({
                 href={`/schools/${guide.slug}`}
                 className="pg-chip is-link"
               >
-                {school} ↗
+                {school}
               </Link>
             ) : (
               <span key={school} className="pg-chip">
@@ -83,19 +83,8 @@ export default function ResultsPage() {
               />
             ))}
           </div>
-          <p className="school-result-notice">
-            CCA는 과거 합격 기록으로 소개합니다. 학교는 2026–27학년도를 마지막으로
-            운영을 종료할 예정이며, 신규 지원 학교 안내와 구분됩니다.{" "}
-            <a
-              href="https://portal.cca.edu/transition/parents/parent-communications/parent-message/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              CCA 공식 공지 ↗
-            </a>
-          </p>
           <Link className="editorial-link" href="/schools">
-            현재 학교별 지원 안내 보기 <span aria-hidden="true">↗</span>
+            현재 학교별 지원 안내 보기
           </Link>
         </Container>
       </section>

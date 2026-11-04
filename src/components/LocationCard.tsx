@@ -19,7 +19,7 @@ export default function LocationCard() {
       {src ? (
         <>
           <Image src={src} alt="NINE·W 위치 안내 사진" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
-          <span className="location-card-label">네이버 지도에서 보기 <i aria-hidden="true">↗</i></span>
+          <span className="location-card-label">네이버 지도에서 보기</span>
         </>
       ) : (
         <span className="location-card-empty">

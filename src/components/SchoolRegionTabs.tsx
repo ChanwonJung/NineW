@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useLayoutEffect, useRef, useState } from "react";
 
 export type RegionTabSchool = { slug: string; name: string; nameKo: string; location: string; photo?: string };
-export type RegionTab = { key: string; label: string; total: number; schools: RegionTabSchool[] };
+export type RegionTab = { key: string; label: string; schools: RegionTabSchool[] };
 
 // 제목 옆 지역 탭 + 그 지역 학교 3곳. 탭 밑줄은 선택한 탭으로 미끄러져 가고, 카드는 지역이 바뀔 때 차례로 떠오른다.
 export default function SchoolRegionTabs({ title, regions }: { title: string; regions: RegionTab[] }) {
@@ -68,7 +68,6 @@ export default function SchoolRegionTabs({ title, regions }: { title: string; re
               <strong>{s.name}</strong>
               <span>{s.nameKo}</span>
               <em>{s.location}</em>
-              <span className="rtabs-arrow" aria-hidden="true">↗</span>
             </span>
           </Link>
         ))}
@@ -76,8 +75,8 @@ export default function SchoolRegionTabs({ title, regions }: { title: string; re
 
       {region && (
         <div className="rtabs-more" key={`more-${region.key}`}>
-          <Link className="more-pill" href={`/schools?region=${region.key}`}>
-            {region.label} 학교 더보기 <span className="more-pill-count">{region.total}곳</span>
+          <Link className="more-pill" href="/schools">
+            다른 학교 더보기
             <span className="more-pill-arrow" aria-hidden="true">→</span>
           </Link>
         </div>

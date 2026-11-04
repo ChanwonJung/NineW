@@ -25,7 +25,7 @@ export default function VisitPage() {
               <div className="pg-card pg-info">
                 <span>지하철</span>
                 <p>{siteConfig.address.subway}</p>
-                <p className="pg-info-sub">{siteConfig.address.subwayAlt}</p>
+                <p>{siteConfig.address.subwayAlt}</p>
               </div>
               <div className="pg-card pg-info">
                 <span>버스</span>

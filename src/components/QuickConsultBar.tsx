@@ -111,7 +111,7 @@ export default function QuickConsultBar() {
                 "접수 중…"
               ) : (
                 <>
-                  상담 신청 <span aria-hidden="true">↗</span>
+                  상담 신청
                 </>
               )}
             </button>
