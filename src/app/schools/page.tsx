@@ -23,7 +23,7 @@ export default async function SchoolsPage({ searchParams }: Props) {
   const photoCreditSlugs = [...new Set([...schools.map((school) => school.slug), ...schoolProfiles.map((school) => school.slug)])];
 
   return <>
-    <PageHero title="지역별 학교 안내" description="이름보다 먼저, 배우고 싶은 것부터. 지역과 학교의 성격, 포트폴리오 준비의 차이를 살펴보세요." />
+    <PageHero title="지역별 학교 안내" />
     <Container className="school-directory-body">
       <SchoolDirectory key={initialRegion} initialRegion={initialRegion} />
       <details id="photo-credits" className="school-photo-credits">

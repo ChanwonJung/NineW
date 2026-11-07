@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
-      <PageHero title="자주 묻는 질문" description="상담 전에 자주 확인하시는 내용을 모았습니다." />
+      <PageHero title="자주 묻는 질문" />
       <section className="pg-section">
         <Container>
           <div className="pg-faq">
@@ -26,7 +26,7 @@ export default function FaqPage() {
             ))}
           </div>
           <p className="pg-note pg-note-center">
-            더 궁금한 점은 전화나 인스타그램으로 편하게 물어봐 주세요. 자주 나오는 질문이 더 확인되는 대로 이 목록에 추가하겠습니다.
+            더 궁금한 점은 전화나 인스타그램으로 편하게 물어봐 주세요.
           </p>
         </Container>
       </section>

@@ -17,7 +17,6 @@ export default function ProgramsPage() {
       <section className="pg-hero">
         <Container>
           <h1>목표와 시기에 맞는 네 가지 수업</h1>
-          <p className="pg-hero-sub">준비 목적과 지금까지 해 온 작품을 알려 주시면 맞는 수업을 안내해 드립니다.</p>
         </Container>
       </section>
       <ProgramTabs />

@@ -42,7 +42,7 @@ const captions: Record<string, string> = {
 };
 export default function SchoolPhoto({slug,name}:{slug:string;name?:string}) {
  const photo=photos[slug as keyof typeof photos];
- if(!photo) return <div className="school-campus-photo school-campus-placeholder" role="img" aria-label={(name??slug)+" 학교 이미지 준비 중"}><span>{name??slug}</span><small>OFFICIAL PROFILE</small></div>;
+ if(!photo) return <div className="school-campus-photo school-campus-placeholder" role="img" aria-label={(name??slug)+" 학교"}><span>{name??slug}</span><small>OFFICIAL PROFILE</small></div>;
  return <div className="school-campus-photo"><Image src={photo.src} alt={captions[slug]} fill sizes="(max-width:640px) 50vw, (max-width:1024px) 45vw, 400px" /></div>;
 }
 export function SchoolPhotoCredit({slug}:{slug:string}) {

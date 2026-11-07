@@ -1,5 +1,5 @@
 "use client";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
@@ -21,9 +21,22 @@ const items: Item[] = [
 export default function SideQuickMenu() {
   const pathname = usePathname();
   const [open, setOpen] = useState(true);
+  // 휴대폰에서는 아래로 스크롤하는 동안 메뉴를 화면 밖으로 숨기고, 위로 올리면 다시 보여 준다(데스크톱은 CSS에서 무시).
+  const [away, setAway] = useState(false);
+  useEffect(() => {
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y < 80) setAway(false);
+      else if (Math.abs(y - last) > 8) setAway(y > last);
+      if (Math.abs(y - last) > 8 || y < 80) last = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   if (pathname?.startsWith("/admin")) return null;
   return (
-    <aside className={`side-quick ${open ? "is-open" : "is-closed"}`} aria-label="바로가기 메뉴">
+    <aside className={`side-quick ${open ? "is-open" : "is-closed"}${away ? " is-away" : ""}`} aria-label="바로가기 메뉴">
       <button type="button" className="side-quick-toggle" aria-expanded={open} aria-controls="side-quick-list" aria-label={open ? "바로가기 메뉴 접기" : "바로가기 메뉴 펼치기"} onClick={() => setOpen(current => !current)}>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 2l5 5-5 5" /></svg>
       </button>

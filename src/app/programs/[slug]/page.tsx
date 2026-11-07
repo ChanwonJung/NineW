@@ -32,7 +32,6 @@ export default async function ProgramPage({ params }: Props) {
       <section className="pg-hero">
         <Container>
           <h1>{program.name}</h1>
-          <p className="pg-hero-sub">{program.summary}</p>
         </Container>
       </section>
       <ProgramTabs />

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
  description:"NINE·W의 역사와 교육철학, 정석희 원장의 주요 이력을 소개합니다.",
 };
 export default function AboutPage(){return <>
- <PageHero title="1997년 뉴저지에서 시작한 유학미술학원" description="학생마다 관심사와 준비 기간이 달라서, 포트폴리오도 학생마다 따로 계획합니다."/>
+ <PageHero title="1997년 뉴저지에서 시작한 유학미술학원"/>
  <section className="pg-section"><Container>
  <div className="pg-intro">
  <div className="pg-detail-image bg-paper-dim"><Image src={aboutImages.history.src} alt={aboutImages.history.alt} fill sizes="(min-width:1024px) 560px, 100vw" className="object-contain"/></div>
