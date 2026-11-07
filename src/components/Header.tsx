@@ -4,7 +4,7 @@ import Link from "next/link";
 import BrandLogo from "@/components/BrandLogo";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navLinks, siteConfig } from "@/data/site";
+import { navLinks } from "@/data/site";
 import { programs } from "@/data/programs";
 
 // 메가 메뉴: 메뉴 영역에 마우스를 올리면 모든 메뉴의 하위 페이지가 한 번에 펼쳐진다.
@@ -109,10 +109,26 @@ export default function Header() {
 
       {open && (
         <div id="mobile-navigation" className="border-t border-line bg-paper px-4 pb-6 pt-2 lg:hidden">
-          {/* 모바일도 데스크톱과 같이 상위 메뉴는 펼치기만 하고, 하위 메뉴로만 이동한다. */}
+          {/* 하위 메뉴가 여럿인 메뉴는 눌러서 펼치고, 하위 메뉴가 하나뿐이면 그 페이지로 바로 이동한다. */}
           <nav className="flex flex-col">
             {primaryLinks.map((link) => {
               const expanded = mobileSection === link.href;
+              const children = navChildren[link.href] ?? [];
+              if (children.length <= 1) {
+                const href = children[0]?.href ?? link.href;
+                return (
+                  <div key={link.href} className="border-b border-line/70">
+                    <Link
+                      href={href}
+                      aria-current={pathname === href ? "page" : undefined}
+                      onClick={() => setOpen(false)}
+                      className="flex w-full items-center py-3 text-left text-base text-ink/85"
+                    >
+                      {link.label}
+                    </Link>
+                  </div>
+                );
+              }
               return (
                 <div key={link.href} className="border-b border-line/70">
                   <button
@@ -129,7 +145,7 @@ export default function Header() {
                   </button>
                   {expanded && (
                     <ul id={`mobile-sub-${link.href.slice(1)}`} className="pb-3 pl-3">
-                      {navChildren[link.href].map(child => (
+                      {children.map(child => (
                         <li key={child.href}>
                           <Link href={child.href} onClick={() => setOpen(false)} className="block py-2 text-[15px] text-ink/70">
                             {child.label}
@@ -142,12 +158,6 @@ export default function Header() {
               );
             })}
           </nav>
-          <a
-            href={siteConfig.phoneHref}
-            className="mt-4 block rounded-full bg-accent px-4 py-3 text-center text-sm font-medium text-paper"
-          >
-            전화 상담 {siteConfig.phone}
-          </a>
         </div>
       )}
     </header>
