@@ -63,7 +63,6 @@ export default function ResultsPage() {
     <>
       <PageHero
         title="30여 년간 이어온 합격 사례"
-        description="1997년 미국 뉴저지에서 시작해 서울 강남에서 유학미술 교육을 이어 오며 아래 학교들에 합격한 사례가 있습니다."
       />
 
       <section className="pg-section">

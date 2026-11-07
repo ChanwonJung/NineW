@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ScrollMotion from "@/components/ScrollMotion";
 import QuickConsultBar from "@/components/QuickConsultBar";
 import SideQuickMenu from "@/components/SideQuickMenu";
+import ScrollTopButton from "@/components/ScrollTopButton";
 import StructuredData from "@/components/StructuredData";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { siteConfig } from "@/data/site";
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <QuickConsultBar />
         <SideQuickMenu />
+        <ScrollTopButton />
         <Suspense fallback={null}>
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         </Suspense>

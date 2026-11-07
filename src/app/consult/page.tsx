@@ -9,7 +9,7 @@ export const metadata: Metadata = pageMetadata("상담 신청", "NINE·W 상담 
 export default function ConsultPage() {
   return (
     <>
-      <PageHero title="NINE·W 상담 신청" description="편한 시간에 연락드릴 수 있도록 아래 내용을 남겨 주세요." />
+      <PageHero title="NINE·W 상담 신청" />
       <section className="consult-page">
         <div className="consult-page-inner">
           <aside className="consult-aside">

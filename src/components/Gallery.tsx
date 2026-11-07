@@ -3,14 +3,23 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Container from "@/components/Container";
-import type { RealImage } from "@/data/images";
+import FilterTabs from "@/components/FilterTabs";
+import type { GalleryCategory, GalleryImage } from "@/data/images";
 
-type Group = { title: string; description: string; images: RealImage[] };
+// 작품 분류 탭. 누른 분류의 작품만 보이고, 크게 보기 팝업도 그 분류 안에서 넘긴다.
+const CATEGORIES: { value: "all" | GalleryCategory; label: string }[] = [
+  { value: "all", label: "전체" },
+  { value: "painting", label: "회화" },
+  { value: "sculpture", label: "조소" },
+  { value: "object", label: "입체" },
+  { value: "installation", label: "설치" },
+];
 
 // 학생 작품 목록 + 크게 보기 팝업. 작품을 누르면 원본 비율 그대로 크게 열리고,
 // 좌우 버튼·키보드 화살표·휴대폰 밀기로 다음/이전 작품을 본다. Esc나 바깥을 누르면 닫힌다.
-export default function GalleryGroups({ groups }: { groups: Group[] }) {
-  const all = groups.flatMap(g => g.images);
+export default function Gallery({ images }: { images: GalleryImage[] }) {
+  const [category, setCategory] = useState<"all" | GalleryCategory>("all");
+  const all = category === "all" ? images : images.filter(image => image.category === category);
   const [index, setIndex] = useState<number | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement | null>(null);
@@ -35,29 +44,22 @@ export default function GalleryGroups({ groups }: { groups: Group[] }) {
     setIndex(i => (i === null ? i : (i + step + all.length) % all.length));
   }
 
-  let n = 0;
   const current = index === null ? null : all[index];
 
   return (
     <>
-      {groups.map((group, gi) => (
-        <section key={group.title} className={`pg-section ${gi % 2 === 1 ? "pg-section-dim" : ""}`}>
-          <Container>
-            <h2 className="pg-h2">{group.title}</h2>
-            <p className="pg-lead">{group.description}</p>
-            <div className="pg-photo-grid">
-              {group.images.map(image => {
-                const i = n++;
-                return (
-                  <button key={image.src} type="button" className="pg-photo" aria-label={`${image.alt} 크게 보기`} onClick={e => open(i, e.currentTarget)}>
-                    <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
-                  </button>
-                );
-              })}
-            </div>
-          </Container>
-        </section>
-      ))}
+      <section className="pg-section">
+        <Container>
+          <FilterTabs label="작품 분류" className="gallery-filters" options={CATEGORIES} value={category} onChange={c => { setIndex(null); setCategory(c); }} />
+          <div className="pg-photo-grid">
+            {all.map((image, i) => (
+              <button key={image.src} type="button" className="pg-photo" aria-label={`${image.alt} 크게 보기`} onClick={e => open(i, e.currentTarget)}>
+                <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
+              </button>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <dialog
         ref={dialog}
@@ -83,7 +85,6 @@ export default function GalleryGroups({ groups }: { groups: Group[] }) {
               <Image src={current.src} alt={current.alt} fill sizes="92vw" className="object-contain" priority />
             </div>
             <figcaption>
-              <span>{current.alt}</span>
               <span className="lightbox-count">{(index ?? 0) + 1} / {all.length}</span>
             </figcaption>
           </figure>

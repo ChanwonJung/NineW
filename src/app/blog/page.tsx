@@ -13,7 +13,6 @@ export default function BlogPage() {
     <>
       <PageHero
         title="NINE·W 소식"
-        description="수업 이야기와 유학미술 정보를 준비하고 있습니다."
       />
       <section className="pg-section">
         <Container>
